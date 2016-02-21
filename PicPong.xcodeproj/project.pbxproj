@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574DB1C7A7A9200681FD9 /* AppDelegate.swift */; };
+		934574DE1C7A7A9200681FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574DD1C7A7A9200681FD9 /* ViewController.swift */; };
+		934574E11C7A7A9200681FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934574DF1C7A7A9200681FD9 /* Main.storyboard */; };
+		934574E31C7A7A9200681FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934574E21C7A7A9200681FD9 /* Assets.xcassets */; };
+		934574E61C7A7A9200681FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */; };
+		934574F11C7A7A9200681FD9 /* PicPongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574F01C7A7A9200681FD9 /* PicPongTests.swift */; };
+		934574FC1C7A7A9200681FD9 /* PicPongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574FB1C7A7A9200681FD9 /* PicPongUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		934574ED1C7A7A9200681FD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 934574D01C7A7A9200681FD9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934574D71C7A7A9200681FD9;
+			remoteInfo = PicPong;
+		};
+		934574F81C7A7A9200681FD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 934574D01C7A7A9200681FD9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934574D71C7A7A9200681FD9;
+			remoteInfo = PicPong;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		934574D81C7A7A9200681FD9 /* PicPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		934574DB1C7A7A9200681FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		934574DD1C7A7A9200681FD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		934574E01C7A7A9200681FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		934574E21C7A7A9200681FD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		934574E51C7A7A9200681FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		934574E71C7A7A9200681FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		934574EC1C7A7A9200681FD9 /* PicPongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicPongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934574F01C7A7A9200681FD9 /* PicPongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPongTests.swift; sourceTree = "<group>"; };
+		934574F21C7A7A9200681FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		934574F71C7A7A9200681FD9 /* PicPongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicPongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		934574FB1C7A7A9200681FD9 /* PicPongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPongUITests.swift; sourceTree = "<group>"; };
+		934574FD1C7A7A9200681FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		934574D51C7A7A9200681FD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934574E91C7A7A9200681FD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934574F41C7A7A9200681FD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		934574CF1C7A7A9200681FD9 = {
+			isa = PBXGroup;
+			children = (
+				934574DA1C7A7A9200681FD9 /* PicPong */,
+				934574EF1C7A7A9200681FD9 /* PicPongTests */,
+				934574FA1C7A7A9200681FD9 /* PicPongUITests */,
+				934574D91C7A7A9200681FD9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		934574D91C7A7A9200681FD9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				934574D81C7A7A9200681FD9 /* PicPong.app */,
+				934574EC1C7A7A9200681FD9 /* PicPongTests.xctest */,
+				934574F71C7A7A9200681FD9 /* PicPongUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		934574DA1C7A7A9200681FD9 /* PicPong */ = {
+			isa = PBXGroup;
+			children = (
+				934574DB1C7A7A9200681FD9 /* AppDelegate.swift */,
+				934574DD1C7A7A9200681FD9 /* ViewController.swift */,
+				934574DF1C7A7A9200681FD9 /* Main.storyboard */,
+				934574E21C7A7A9200681FD9 /* Assets.xcassets */,
+				934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */,
+				934574E71C7A7A9200681FD9 /* Info.plist */,
+			);
+			path = PicPong;
+			sourceTree = "<group>";
+		};
+		934574EF1C7A7A9200681FD9 /* PicPongTests */ = {
+			isa = PBXGroup;
+			children = (
+				934574F01C7A7A9200681FD9 /* PicPongTests.swift */,
+				934574F21C7A7A9200681FD9 /* Info.plist */,
+			);
+			path = PicPongTests;
+			sourceTree = "<group>";
+		};
+		934574FA1C7A7A9200681FD9 /* PicPongUITests */ = {
+			isa = PBXGroup;
+			children = (
+				934574FB1C7A7A9200681FD9 /* PicPongUITests.swift */,
+				934574FD1C7A7A9200681FD9 /* Info.plist */,
+			);
+			path = PicPongUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		934574D71C7A7A9200681FD9 /* PicPong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 934575001C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPong" */;
+			buildPhases = (
+				934574D41C7A7A9200681FD9 /* Sources */,
+				934574D51C7A7A9200681FD9 /* Frameworks */,
+				934574D61C7A7A9200681FD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PicPong;
+			productName = PicPong;
+			productReference = 934574D81C7A7A9200681FD9 /* PicPong.app */;
+			productType = "com.apple.product-type.application";
+		};
+		934574EB1C7A7A9200681FD9 /* PicPongTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 934575031C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPongTests" */;
+			buildPhases = (
+				934574E81C7A7A9200681FD9 /* Sources */,
+				934574E91C7A7A9200681FD9 /* Frameworks */,
+				934574EA1C7A7A9200681FD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				934574EE1C7A7A9200681FD9 /* PBXTargetDependency */,
+			);
+			name = PicPongTests;
+			productName = PicPongTests;
+			productReference = 934574EC1C7A7A9200681FD9 /* PicPongTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		934574F61C7A7A9200681FD9 /* PicPongUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 934575061C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPongUITests" */;
+			buildPhases = (
+				934574F31C7A7A9200681FD9 /* Sources */,
+				934574F41C7A7A9200681FD9 /* Frameworks */,
+				934574F51C7A7A9200681FD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				934574F91C7A7A9200681FD9 /* PBXTargetDependency */,
+			);
+			name = PicPongUITests;
+			productName = PicPongUITests;
+			productReference = 934574F71C7A7A9200681FD9 /* PicPongUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		934574D01C7A7A9200681FD9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Benson Huynh";
+				TargetAttributes = {
+					934574D71C7A7A9200681FD9 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = Q4XP3UEQ6Q;
+					};
+					934574EB1C7A7A9200681FD9 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = Q4XP3UEQ6Q;
+						TestTargetID = 934574D71C7A7A9200681FD9;
+					};
+					934574F61C7A7A9200681FD9 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = Q4XP3UEQ6Q;
+						TestTargetID = 934574D71C7A7A9200681FD9;
+					};
+				};
+			};
+			buildConfigurationList = 934574D31C7A7A9200681FD9 /* Build configuration list for PBXProject "PicPong" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 934574CF1C7A7A9200681FD9;
+			productRefGroup = 934574D91C7A7A9200681FD9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				934574D71C7A7A9200681FD9 /* PicPong */,
+				934574EB1C7A7A9200681FD9 /* PicPongTests */,
+				934574F61C7A7A9200681FD9 /* PicPongUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		934574D61C7A7A9200681FD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934574E61C7A7A9200681FD9 /* LaunchScreen.storyboard in Resources */,
+				934574E31C7A7A9200681FD9 /* Assets.xcassets in Resources */,
+				934574E11C7A7A9200681FD9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934574EA1C7A7A9200681FD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934574F51C7A7A9200681FD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		934574D41C7A7A9200681FD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934574DE1C7A7A9200681FD9 /* ViewController.swift in Sources */,
+				934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934574E81C7A7A9200681FD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934574F11C7A7A9200681FD9 /* PicPongTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		934574F31C7A7A9200681FD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				934574FC1C7A7A9200681FD9 /* PicPongUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		934574EE1C7A7A9200681FD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 934574D71C7A7A9200681FD9 /* PicPong */;
+			targetProxy = 934574ED1C7A7A9200681FD9 /* PBXContainerItemProxy */;
+		};
+		934574F91C7A7A9200681FD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 934574D71C7A7A9200681FD9 /* PicPong */;
+			targetProxy = 934574F81C7A7A9200681FD9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		934574DF1C7A7A9200681FD9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				934574E01C7A7A9200681FD9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				934574E51C7A7A9200681FD9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		934574FE1C7A7A9200681FD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		934574FF1C7A7A9200681FD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		934575011C7A7A9200681FD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PicPong/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		934575021C7A7A9200681FD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PicPong/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		934575041C7A7A9200681FD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PicPongTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicPong.app/PicPong";
+			};
+			name = Debug;
+		};
+		934575051C7A7A9200681FD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PicPongTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PicPong.app/PicPong";
+			};
+			name = Release;
+		};
+		934575071C7A7A9200681FD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PicPongUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPongUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PicPong;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		934575081C7A7A9200681FD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PicPongUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPongUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PicPong;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		934574D31C7A7A9200681FD9 /* Build configuration list for PBXProject "PicPong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934574FE1C7A7A9200681FD9 /* Debug */,
+				934574FF1C7A7A9200681FD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		934575001C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934575011C7A7A9200681FD9 /* Debug */,
+				934575021C7A7A9200681FD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		934575031C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPongTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934575041C7A7A9200681FD9 /* Debug */,
+				934575051C7A7A9200681FD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		934575061C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPongUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				934575071C7A7A9200681FD9 /* Debug */,
+				934575081C7A7A9200681FD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 934574D01C7A7A9200681FD9 /* Project object */;
+}
