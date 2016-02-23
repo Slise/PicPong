@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68F0EF4EB9D9D55BF4580F2F /* Pods_PicPong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8EC9ECC3084D6654E4DB61 /* Pods_PicPong.framework */; };
 		934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574DB1C7A7A9200681FD9 /* AppDelegate.swift */; };
-		934574DE1C7A7A9200681FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574DD1C7A7A9200681FD9 /* ViewController.swift */; };
 		934574E11C7A7A9200681FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934574DF1C7A7A9200681FD9 /* Main.storyboard */; };
 		934574E31C7A7A9200681FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934574E21C7A7A9200681FD9 /* Assets.xcassets */; };
 		934574E61C7A7A9200681FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */; };
 		934574F11C7A7A9200681FD9 /* PicPongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574F01C7A7A9200681FD9 /* PicPongTests.swift */; };
 		934574FC1C7A7A9200681FD9 /* PicPongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574FB1C7A7A9200681FD9 /* PicPongUITests.swift */; };
+		934575101C7A7B7300681FD9 /* MarkPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9345750F1C7A7B7300681FD9 /* MarkPhotoView.swift */; };
+		934575121C7BAD4500681FD9 /* Pong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934575111C7BAD4500681FD9 /* Pong.swift */; };
+		934575191C7BB8A900681FD9 /* MainSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934575181C7BB8A900681FD9 /* MainSelectionView.swift */; };
+		9345751E1C7BCA6600681FD9 /* PongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9345751D1C7BCA6600681FD9 /* PongView.swift */; };
+		934575201C7BFCF600681FD9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9345751F1C7BFCF600681FD9 /* Constant.swift */; };
+		934575221C7C153700681FD9 /* PhotoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934575211C7C153700681FD9 /* PhotoCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B8EC9ECC3084D6654E4DB61 /* Pods_PicPong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicPong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78DA2BFF80CBE74EA9B42935 /* Pods-PicPong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPong.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPong/Pods-PicPong.release.xcconfig"; sourceTree = "<group>"; };
 		934574D81C7A7A9200681FD9 /* PicPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934574DB1C7A7A9200681FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		934574DD1C7A7A9200681FD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		934574E01C7A7A9200681FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		934574E21C7A7A9200681FD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		934574E51C7A7A9200681FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,13 @@
 		934574F71C7A7A9200681FD9 /* PicPongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PicPongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		934574FB1C7A7A9200681FD9 /* PicPongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPongUITests.swift; sourceTree = "<group>"; };
 		934574FD1C7A7A9200681FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9345750F1C7A7B7300681FD9 /* MarkPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkPhotoView.swift; sourceTree = "<group>"; };
+		934575111C7BAD4500681FD9 /* Pong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pong.swift; sourceTree = "<group>"; };
+		934575181C7BB8A900681FD9 /* MainSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSelectionView.swift; sourceTree = "<group>"; };
+		9345751D1C7BCA6600681FD9 /* PongView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongView.swift; sourceTree = "<group>"; };
+		9345751F1C7BFCF600681FD9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		934575211C7C153700681FD9 /* PhotoCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollection.swift; sourceTree = "<group>"; };
+		A8888C5378C6CF45FAB033CA /* Pods-PicPong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicPong/Pods-PicPong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F0EF4EB9D9D55BF4580F2F /* Pods_PicPong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6781330AF3FE492F85622A3E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B8EC9ECC3084D6654E4DB61 /* Pods_PicPong.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		934574CF1C7A7A9200681FD9 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +104,8 @@
 				934574EF1C7A7A9200681FD9 /* PicPongTests */,
 				934574FA1C7A7A9200681FD9 /* PicPongUITests */,
 				934574D91C7A7A9200681FD9 /* Products */,
+				E6FFFED4EB407D88112559D2 /* Pods */,
+				6781330AF3FE492F85622A3E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +122,11 @@
 		934574DA1C7A7A9200681FD9 /* PicPong */ = {
 			isa = PBXGroup;
 			children = (
-				934574DB1C7A7A9200681FD9 /* AppDelegate.swift */,
-				934574DD1C7A7A9200681FD9 /* ViewController.swift */,
-				934574DF1C7A7A9200681FD9 /* Main.storyboard */,
-				934574E21C7A7A9200681FD9 /* Assets.xcassets */,
-				934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */,
+				9345751B1C7BBD5500681FD9 /* Controller */,
+				934575151C7BB7A000681FD9 /* View */,
+				934575161C7BB7CA00681FD9 /* Model */,
+				9345751A1C7BBCF300681FD9 /* UI */,
+				934575171C7BB7F300681FD9 /* Assets */,
 				934574E71C7A7A9200681FD9 /* Info.plist */,
 			);
 			path = PicPong;
@@ -125,6 +150,60 @@
 			path = PicPongUITests;
 			sourceTree = "<group>";
 		};
+		934575151C7BB7A000681FD9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		934575161C7BB7CA00681FD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				934574DB1C7A7A9200681FD9 /* AppDelegate.swift */,
+				934575111C7BAD4500681FD9 /* Pong.swift */,
+				9345751F1C7BFCF600681FD9 /* Constant.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		934575171C7BB7F300681FD9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				934574E21C7A7A9200681FD9 /* Assets.xcassets */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		9345751A1C7BBCF300681FD9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */,
+				934574DF1C7A7A9200681FD9 /* Main.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		9345751B1C7BBD5500681FD9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				934575181C7BB8A900681FD9 /* MainSelectionView.swift */,
+				9345750F1C7A7B7300681FD9 /* MarkPhotoView.swift */,
+				9345751D1C7BCA6600681FD9 /* PongView.swift */,
+				934575211C7C153700681FD9 /* PhotoCollection.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E6FFFED4EB407D88112559D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8888C5378C6CF45FAB033CA /* Pods-PicPong.debug.xcconfig */,
+				78DA2BFF80CBE74EA9B42935 /* Pods-PicPong.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 934575001C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPong" */;
 			buildPhases = (
+				63C66BAE7A73A17C8B4FAC89 /* Check Pods Manifest.lock */,
 				934574D41C7A7A9200681FD9 /* Sources */,
 				934574D51C7A7A9200681FD9 /* Frameworks */,
 				934574D61C7A7A9200681FD9 /* Resources */,
+				94B4706D265A5A678375F642 /* Embed Pods Frameworks */,
+				6985E2DF58195AF8A68A63A5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,12 +336,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		63C66BAE7A73A17C8B4FAC89 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6985E2DF58195AF8A68A63A5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicPong/Pods-PicPong-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94B4706D265A5A678375F642 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PicPong/Pods-PicPong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		934574D41C7A7A9200681FD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934574DE1C7A7A9200681FD9 /* ViewController.swift in Sources */,
+				934575201C7BFCF600681FD9 /* Constant.swift in Sources */,
+				9345751E1C7BCA6600681FD9 /* PongView.swift in Sources */,
+				934575221C7C153700681FD9 /* PhotoCollection.swift in Sources */,
+				934575121C7BAD4500681FD9 /* Pong.swift in Sources */,
+				934575101C7A7B7300681FD9 /* MarkPhotoView.swift in Sources */,
+				934575191C7BB8A900681FD9 /* MainSelectionView.swift in Sources */,
 				934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +535,7 @@
 		};
 		934575011C7A7A9200681FD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8888C5378C6CF45FAB033CA /* Pods-PicPong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PicPong/Info.plist;
@@ -411,6 +547,7 @@
 		};
 		934575021C7A7A9200681FD9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78DA2BFF80CBE74EA9B42935 /* Pods-PicPong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PicPong/Info.plist;
@@ -487,6 +624,7 @@
 				934575021C7A7A9200681FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		934575031C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPongTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +633,7 @@
 				934575051C7A7A9200681FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		934575061C7A7A9200681FD9 /* Build configuration list for PBXNativeTarget "PicPongUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +642,7 @@
 				934575081C7A7A9200681FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,25 +1,183 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="odG-e5-qVA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Photo Collection-->
+        <scene sceneID="oKz-C5-HbJ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qyb-Co-a0K" customClass="PhotoCollection" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="upw-DE-TI4"/>
+                        <viewControllerLayoutGuide type="bottom" id="2QM-zZ-q5y"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="3qo-OF-ZvR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pe3-e2-hzx">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fIB-ax-6P6">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aC3-J3-xWE">
+                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Pe3-e2-hzx" secondAttribute="trailing" id="JDs-kJ-aot"/>
+                            <constraint firstItem="Pe3-e2-hzx" firstAttribute="leading" secondItem="3qo-OF-ZvR" secondAttribute="leading" id="YgS-EE-SEV"/>
+                            <constraint firstItem="Pe3-e2-hzx" firstAttribute="top" secondItem="upw-DE-TI4" secondAttribute="bottom" id="n9M-bj-e3T"/>
+                            <constraint firstItem="2QM-zZ-q5y" firstAttribute="top" secondItem="Pe3-e2-hzx" secondAttribute="bottom" id="nzX-lP-KEO"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Hg-RD-d4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1906" y="1049"/>
+        </scene>
+        <!--Main Selection View-->
+        <scene sceneID="ZsY-51-3RX">
+            <objects>
+                <viewController id="ssr-TI-3Rd" customClass="MainSelectionView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EZh-9q-2hp"/>
+                        <viewControllerLayoutGuide type="bottom" id="wWz-GU-yRR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MeH-Me-xS9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OU-TN-VoE">
+                                <rect key="frame" x="251" y="378" width="111" height="30"/>
+                                <state key="normal" title="explore tagged"/>
+                                <connections>
+                                    <segue destination="qyb-Co-a0K" kind="show" id="mK6-py-Tvs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-p9-fWe">
+                                <rect key="frame" x="264" y="221" width="73" height="30"/>
+                                <state key="normal" title="pic a pong"/>
+                                <connections>
+                                    <action selector="loadImageButtonTapped:" destination="ssr-TI-3Rd" eventType="touchUpInside" id="hA1-hI-06K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3dK-zL-yCQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eud-eO-yHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906" y="305"/>
+        </scene>
+        <!--Mark Photo View-->
+        <scene sceneID="uLr-z0-TVN">
+            <objects>
+                <viewController id="HaC-Ub-ng5" customClass="MarkPhotoView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mmi-B8-HfW"/>
+                        <viewControllerLayoutGuide type="bottom" id="WqZ-GS-H9H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ohG-OU-ULr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zar-eE-3No" customClass="mark">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPa-Nt-5AD">
+                                <rect key="frame" x="20" y="28" width="46" height="28"/>
+                                <state key="normal" title="cancel"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lW4-dl-8yA">
+                                <rect key="frame" x="534" y="28" width="46" height="30"/>
+                                <state key="normal" title="send"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9c5-bk-hD6">
+                                <rect key="frame" x="20" y="550" width="46" height="30"/>
+                                <state key="normal" title="colour"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4K-dG-A6l">
+                                <rect key="frame" x="534" y="550" width="46" height="30"/>
+                                <state key="normal" title="undo"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WqZ-GS-H9H" firstAttribute="top" secondItem="zar-eE-3No" secondAttribute="bottom" id="5jK-Hg-yCR"/>
+                            <constraint firstItem="zar-eE-3No" firstAttribute="leading" secondItem="ohG-OU-ULr" secondAttribute="leading" id="LId-yS-Cw6"/>
+                            <constraint firstAttribute="trailing" secondItem="zar-eE-3No" secondAttribute="trailing" id="Qsh-kF-gKi"/>
+                            <constraint firstItem="zar-eE-3No" firstAttribute="top" secondItem="mmi-B8-HfW" secondAttribute="bottom" id="bXL-eX-SY7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LIJ-M8-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2681" y="305"/>
+        </scene>
+        <!--Pong View-->
+        <scene sceneID="r11-ct-zIM">
+            <objects>
+                <viewController id="8qR-G2-l4A" customClass="PongView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HKc-uO-ASa"/>
+                        <viewControllerLayoutGuide type="bottom" id="VbS-n9-Q3d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jss-sV-LaT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xKi-Em-SYw">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xKi-Em-SYw" firstAttribute="top" secondItem="HKc-uO-ASa" secondAttribute="bottom" id="HMj-8K-r3J"/>
+                            <constraint firstItem="VbS-n9-Q3d" firstAttribute="top" secondItem="xKi-Em-SYw" secondAttribute="bottom" id="YRd-za-Zzo"/>
+                            <constraint firstAttribute="trailing" secondItem="xKi-Em-SYw" secondAttribute="trailing" id="aAK-Me-nr3"/>
+                            <constraint firstItem="xKi-Em-SYw" firstAttribute="leading" secondItem="Jss-sV-LaT" secondAttribute="leading" id="kzZ-ND-CUe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Wv-Uq-ob4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2681" y="1049"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vCi-Hh-wMD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="odG-e5-qVA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lb7-a3-FjI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ssr-TI-3Rd" kind="relationship" relationship="rootViewController" id="cS0-pO-aJQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Eg-79-Sow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1094" y="305"/>
         </scene>
     </scenes>
 </document>
