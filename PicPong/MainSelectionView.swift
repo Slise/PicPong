@@ -16,7 +16,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     @IBAction func loadImageButtonTapped(sender: UIButton) {
         imagePicker.allowsEditing = false
-        imagePicker.sourceType = .Camera
+        imagePicker.sourceType = .PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
     }
 

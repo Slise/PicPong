@@ -15,7 +15,7 @@ class Pong : PFObject, PFSubclassing {
     @NSManaged var stepControl: Int
     @NSManaged var previousUserID: String
     @NSManaged var finished: Bool
-    @NSManaged var originator: PFUser
+    @NSManaged var originator: PFInstallation
     
     override class func initialize() {
         struct Static {
