@@ -12,9 +12,9 @@ import Parse
 class Pong : PFObject, PFSubclassing {
     
     @NSManaged var pongImage: UIImage
+    @NSManaged var images: [UIImage]
     @NSManaged var stepControl: Int
-    @NSManaged var previousUserID: String
-    @NSManaged var finished: Bool
+    @NSManaged var previousUserID: PFInstallation
     @NSManaged var originator: PFInstallation
     
     override class func initialize() {
