@@ -11,7 +11,7 @@ import Parse
 
 class Pong : PFObject, PFSubclassing {
     
-    @NSManaged var image: UIImage
+    @NSManaged var pongImage: UIImage
     @NSManaged var stepControl: Int
     @NSManaged var previousUserID: String
     @NSManaged var finished: Bool

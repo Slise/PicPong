@@ -11,6 +11,9 @@
 		930E142A1C7D2DB900732CA0 /* PongCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14291C7D2DB900732CA0 /* PongCollectionView.swift */; };
 		930E142C1C7D2E0000732CA0 /* PongIterationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142B1C7D2E0000732CA0 /* PongIterationView.swift */; };
 		930E142E1C7D2E2800732CA0 /* EditPongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142D1C7D2E2800732CA0 /* EditPongView.swift */; };
+		930E14301C7D3ABE00732CA0 /* PongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142F1C7D3ABE00732CA0 /* PongCell.swift */; };
+		930E14321C7D3AF400732CA0 /* PongIterationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14311C7D3AF400732CA0 /* PongIterationCell.swift */; };
+		930E14341C7D3B7700732CA0 /* TaggedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14331C7D3B7700732CA0 /* TaggedCell.swift */; };
 		934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574DB1C7A7A9200681FD9 /* AppDelegate.swift */; };
 		934574E11C7A7A9200681FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934574DF1C7A7A9200681FD9 /* Main.storyboard */; };
 		934574E31C7A7A9200681FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934574E21C7A7A9200681FD9 /* Assets.xcassets */; };
@@ -46,6 +49,9 @@
 		930E14291C7D2DB900732CA0 /* PongCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongCollectionView.swift; sourceTree = "<group>"; };
 		930E142B1C7D2E0000732CA0 /* PongIterationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongIterationView.swift; sourceTree = "<group>"; };
 		930E142D1C7D2E2800732CA0 /* EditPongView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPongView.swift; sourceTree = "<group>"; };
+		930E142F1C7D3ABE00732CA0 /* PongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongCell.swift; sourceTree = "<group>"; };
+		930E14311C7D3AF400732CA0 /* PongIterationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongIterationCell.swift; sourceTree = "<group>"; };
+		930E14331C7D3B7700732CA0 /* TaggedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedCell.swift; sourceTree = "<group>"; };
 		934574D81C7A7A9200681FD9 /* PicPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934574DB1C7A7A9200681FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934574E01C7A7A9200681FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -155,6 +161,9 @@
 		934575151C7BB7A000681FD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				930E142F1C7D3ABE00732CA0 /* PongCell.swift */,
+				930E14311C7D3AF400732CA0 /* PongIterationCell.swift */,
+				930E14331C7D3B7700732CA0 /* TaggedCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -180,9 +189,9 @@
 		9345751A1C7BBCF300681FD9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				934575251C7D27A700681FD9 /* DesignSprint.storyboard */,
 				934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */,
 				934574DF1C7A7A9200681FD9 /* Main.storyboard */,
-				934575251C7D27A700681FD9 /* DesignSprint.storyboard */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -395,9 +404,12 @@
 			files = (
 				930E142E1C7D2E2800732CA0 /* EditPongView.swift in Sources */,
 				934575201C7BFCF600681FD9 /* Constant.swift in Sources */,
+				930E14321C7D3AF400732CA0 /* PongIterationCell.swift in Sources */,
 				934575121C7BAD4500681FD9 /* Pong.swift in Sources */,
 				930E142C1C7D2E0000732CA0 /* PongIterationView.swift in Sources */,
 				934575191C7BB8A900681FD9 /* MainSelectionView.swift in Sources */,
+				930E14301C7D3ABE00732CA0 /* PongCell.swift in Sources */,
+				930E14341C7D3B7700732CA0 /* TaggedCell.swift in Sources */,
 				930E142A1C7D2DB900732CA0 /* PongCollectionView.swift in Sources */,
 				934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */,
 			);
