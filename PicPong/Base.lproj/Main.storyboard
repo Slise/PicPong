@@ -8,7 +8,7 @@
         <!--Item-->
         <scene sceneID="oKz-C5-HbJ">
             <objects>
-                <viewController id="qyb-Co-a0K" customClass="PhotoCollection" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="photoCollectionView" id="qyb-Co-a0K" customClass="PhotoCollection" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="upw-DE-TI4"/>
                         <viewControllerLayoutGuide type="bottom" id="2QM-zZ-q5y"/>
@@ -50,13 +50,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Hg-RD-d4j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="-883"/>
+            <point key="canvasLocation" x="742" y="-207"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="ya6-00-1NO">
+            <objects>
+                <viewController id="Zye-Td-7cn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="evz-oZ-LiV"/>
+                        <viewControllerLayoutGuide type="bottom" id="eF6-9O-VPE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nXT-A4-GnW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="BQ6-4k-OsJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUd-mp-hdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="571" y="593"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="KwP-qF-1cf">
+            <objects>
+                <viewController id="Llj-ae-3qy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a90-mH-YqN"/>
+                        <viewControllerLayoutGuide type="bottom" id="d31-3X-WG9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NWY-y2-vEU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="HGC-UF-Lln"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="30n-jO-gkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569" y="-67"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="byt-O2-7oj">
+            <objects>
+                <tabBarController id="7iV-em-AGK" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="vEe-jS-tAQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Llj-ae-3qy" kind="relationship" relationship="viewControllers" id="uh0-RI-aSd"/>
+                        <segue destination="Zye-Td-7cn" kind="relationship" relationship="viewControllers" id="Jx1-iX-PA0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qx-Bo-boW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-255" y="265"/>
         </scene>
         <!--Item-->
         <scene sceneID="ZsY-51-3RX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eud-eO-yHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="ssr-TI-3Rd" customClass="MainSelectionView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainSelectionView" id="ssr-TI-3Rd" customClass="MainSelectionView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EZh-9q-2hp"/>
                         <viewControllerLayoutGuide type="bottom" id="wWz-GU-yRR"/>
@@ -65,12 +120,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OU-TN-VoE">
-                                <rect key="frame" x="251" y="378" width="111" height="30"/>
-                                <state key="normal" title="explore tagged"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrG-p9-fWe">
-                                <rect key="frame" x="264" y="221" width="73" height="30"/>
+                                <rect key="frame" x="264" y="285" width="73" height="30"/>
                                 <state key="normal" title="pic a pong"/>
                                 <connections>
                                     <action selector="loadImageButtonTapped:" destination="ssr-TI-3Rd" eventType="touchUpInside" id="hA1-hI-06K"/>
@@ -82,8 +133,9 @@
                     <tabBarItem key="tabBarItem" title="Item" id="Dma-m4-Ocr"/>
                     <navigationItem key="navigationItem" id="3dK-zL-yCQ"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eud-eO-yHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="-1557"/>
+            <point key="canvasLocation" x="66" y="-207"/>
         </scene>
         <!--Mark Photo View-->
         <scene sceneID="uLr-z0-TVN">
@@ -128,12 +180,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIJ-M8-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173" y="-207"/>
+            <point key="canvasLocation" x="1430" y="505"/>
         </scene>
         <!--Item-->
         <scene sceneID="r11-ct-zIM">
             <objects>
-                <viewController id="8qR-G2-l4A" customClass="PongView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="receivedPongView" id="8qR-G2-l4A" customClass="PongView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HKc-uO-ASa"/>
                         <viewControllerLayoutGuide type="bottom" id="VbS-n9-Q3d"/>
@@ -172,7 +224,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Wv-Uq-ob4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="-223"/>
+            <point key="canvasLocation" x="1378" y="-419"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mrc-a1-QTM">
+            <objects>
+                <viewController id="K1e-WI-fzU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bfW-9m-zya"/>
+                        <viewControllerLayoutGuide type="bottom" id="UxO-9v-T7b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bu3-lh-J6L">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d2q-Yy-2Uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>

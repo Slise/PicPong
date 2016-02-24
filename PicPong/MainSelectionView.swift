@@ -28,10 +28,10 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             self.imagePicker.delegate = self
         }
     
-    // MARK: - UIImagePickerControllerDelegate Methods
+// MARK: - UIImagePickerControllerDelegate Methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         if let imageData = UIImageJPEGRepresentation(image, 0.50) {
-        let imageFile = PFFile(name:"image.png", data:imageData)
+        let imageFile = PFFile(name:"pong.png", data:imageData)
         let userPhoto = PFObject(className:"Pong")
         userPhoto["image"] = imageFile
         userPhoto.saveInBackground()

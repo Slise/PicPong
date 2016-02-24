@@ -18,14 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Initialize Parse.
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         Parse.setApplicationId(Constant.applicationID.rawValue,
             clientKey: Constant.clientID.rawValue)
         
-        
         let currentUser = PFInstallation.currentInstallation()
-
         let pong = Pong()
-        
         pong.originator = currentUser
         
         if pong.originator == currentUser {
