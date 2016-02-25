@@ -8,11 +8,12 @@
 
 import UIKit
 
-class EditPongView: UIViewController {
+class EditPongViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//drawViewHierarchyInRect will draw the view with both bezier and picture
+       // view.drawViewHierarchyInRect(<#T##rect: CGRect##CGRect#>, afterScreenUpdates: <#T##Bool#>)
         // Do any additional setup after loading the view.
     }
 

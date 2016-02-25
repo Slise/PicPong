@@ -10,10 +10,11 @@
 		68F0EF4EB9D9D55BF4580F2F /* Pods_PicPong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8EC9ECC3084D6654E4DB61 /* Pods_PicPong.framework */; };
 		930E142A1C7D2DB900732CA0 /* PongCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14291C7D2DB900732CA0 /* PongCollectionView.swift */; };
 		930E142C1C7D2E0000732CA0 /* PongIterationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142B1C7D2E0000732CA0 /* PongIterationView.swift */; };
-		930E142E1C7D2E2800732CA0 /* EditPongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142D1C7D2E2800732CA0 /* EditPongView.swift */; };
+		930E142E1C7D2E2800732CA0 /* EditPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142D1C7D2E2800732CA0 /* EditPongViewController.swift */; };
 		930E14301C7D3ABE00732CA0 /* PongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142F1C7D3ABE00732CA0 /* PongCell.swift */; };
 		930E14321C7D3AF400732CA0 /* PongIterationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14311C7D3AF400732CA0 /* PongIterationCell.swift */; };
 		930E14341C7D3B7700732CA0 /* TaggedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14331C7D3B7700732CA0 /* TaggedCell.swift */; };
+		930E14361C7E709D00732CA0 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14351C7E709D00732CA0 /* DrawingView.swift */; };
 		934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934574DB1C7A7A9200681FD9 /* AppDelegate.swift */; };
 		934574E31C7A7A9200681FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 934574E21C7A7A9200681FD9 /* Assets.xcassets */; };
 		934574E61C7A7A9200681FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */; };
@@ -47,10 +48,11 @@
 		78DA2BFF80CBE74EA9B42935 /* Pods-PicPong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPong.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicPong/Pods-PicPong.release.xcconfig"; sourceTree = "<group>"; };
 		930E14291C7D2DB900732CA0 /* PongCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongCollectionView.swift; sourceTree = "<group>"; };
 		930E142B1C7D2E0000732CA0 /* PongIterationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongIterationView.swift; sourceTree = "<group>"; };
-		930E142D1C7D2E2800732CA0 /* EditPongView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPongView.swift; sourceTree = "<group>"; };
+		930E142D1C7D2E2800732CA0 /* EditPongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPongViewController.swift; sourceTree = "<group>"; };
 		930E142F1C7D3ABE00732CA0 /* PongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongCell.swift; sourceTree = "<group>"; };
 		930E14311C7D3AF400732CA0 /* PongIterationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongIterationCell.swift; sourceTree = "<group>"; };
 		930E14331C7D3B7700732CA0 /* TaggedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedCell.swift; sourceTree = "<group>"; };
+		930E14351C7E709D00732CA0 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		934574D81C7A7A9200681FD9 /* PicPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934574DB1C7A7A9200681FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934574E21C7A7A9200681FD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				930E142F1C7D3ABE00732CA0 /* PongCell.swift */,
 				930E14311C7D3AF400732CA0 /* PongIterationCell.swift */,
 				930E14331C7D3B7700732CA0 /* TaggedCell.swift */,
+				930E14351C7E709D00732CA0 /* DrawingView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -199,7 +202,7 @@
 				934575181C7BB8A900681FD9 /* MainSelectionView.swift */,
 				930E14291C7D2DB900732CA0 /* PongCollectionView.swift */,
 				930E142B1C7D2E0000732CA0 /* PongIterationView.swift */,
-				930E142D1C7D2E2800732CA0 /* EditPongView.swift */,
+				930E142D1C7D2E2800732CA0 /* EditPongViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -398,7 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				930E142E1C7D2E2800732CA0 /* EditPongView.swift in Sources */,
+				930E142E1C7D2E2800732CA0 /* EditPongViewController.swift in Sources */,
 				934575201C7BFCF600681FD9 /* Constant.swift in Sources */,
 				930E14321C7D3AF400732CA0 /* PongIterationCell.swift in Sources */,
 				934575121C7BAD4500681FD9 /* Pong.swift in Sources */,
@@ -407,6 +410,7 @@
 				930E14301C7D3ABE00732CA0 /* PongCell.swift in Sources */,
 				930E14341C7D3B7700732CA0 /* TaggedCell.swift in Sources */,
 				930E142A1C7D2DB900732CA0 /* PongCollectionView.swift in Sources */,
+				930E14361C7E709D00732CA0 /* DrawingView.swift in Sources */,
 				934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

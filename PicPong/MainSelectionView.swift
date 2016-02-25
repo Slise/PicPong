@@ -5,7 +5,6 @@
 //  Created by Benson Huynh on 2016-02-22.
 //  Copyright © 2016 Benson Huynh. All rights reserved.
 //
-
 import UIKit
 import ParseUI
 import Parse
@@ -34,7 +33,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         let imageFile = PFFile(name:"pong.png", data:imageData)
         let pong = PFObject(className:"Pong")
         pong["pongImage"] = imageFile
-            print("hey \(pong["objectID"])")
         pong.saveInBackground()
         }
         dismissViewControllerAnimated(true, completion: nil)

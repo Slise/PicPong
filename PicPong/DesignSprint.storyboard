@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="752" y="335"/>
         </scene>
-        <!--Edit Pong View-->
+        <!--Edit Pong View Controller-->
         <scene sceneID="DTs-Xn-Hl5">
             <objects>
-                <viewController id="ffY-eT-EVn" customClass="EditPongView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ffY-eT-EVn" customClass="EditPongViewController" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ayy-UW-3Fb"/>
                         <viewControllerLayoutGuide type="bottom" id="NKy-2g-gCx"/>
@@ -149,14 +149,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FG5-Vh-Z0h">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJa-bP-2aF" customClass="DrawingView" customModule="PicPong" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kJa-bP-2aF" firstAttribute="leading" secondItem="4Te-PA-C03" secondAttribute="leading" id="7Sv-oU-Sms"/>
+                            <constraint firstItem="kJa-bP-2aF" firstAttribute="top" secondItem="Ayy-UW-3Fb" secondAttribute="bottom" id="A13-1T-uNF"/>
+                            <constraint firstItem="NKy-2g-gCx" firstAttribute="top" secondItem="kJa-bP-2aF" secondAttribute="bottom" id="Hmk-U5-9Qc"/>
                             <constraint firstItem="NKy-2g-gCx" firstAttribute="top" secondItem="FG5-Vh-Z0h" secondAttribute="bottom" id="Kx4-2R-aA8"/>
                             <constraint firstAttribute="trailing" secondItem="FG5-Vh-Z0h" secondAttribute="trailing" id="Ukv-vs-qy3"/>
                             <constraint firstItem="FG5-Vh-Z0h" firstAttribute="top" secondItem="Ayy-UW-3Fb" secondAttribute="bottom" id="hmP-T7-vT0"/>
+                            <constraint firstAttribute="trailing" secondItem="kJa-bP-2aF" secondAttribute="trailing" id="sRQ-B1-EDM"/>
                             <constraint firstItem="FG5-Vh-Z0h" firstAttribute="leading" secondItem="4Te-PA-C03" secondAttribute="leading" id="zH3-6R-wcM"/>
                         </constraints>
                     </view>
