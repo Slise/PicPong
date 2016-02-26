@@ -20,8 +20,17 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         self.imagePicker.delegate = self
         parseQuery()
+        let pongPlayer = Player.currentUser()
+        if pongPlayer == nil {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                let loginVC:UIViewController = UIStoryboard(name: "DesignSprint", bundle: nil).instantiateViewControllerWithIdentifier("LogInViewController") as UIViewController
+                self.showViewController(loginVC, sender: self)
+            })
+        } else {
+            print("User \(pongPlayer?.username) is logged in")
+        }
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         parseQuery()
     }

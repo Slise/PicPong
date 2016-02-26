@@ -71,7 +71,7 @@ class SignUpViewController: UIViewController {
                     alert.addAction(ok)
                     self.presentViewController(alert, animated: true) {}
 //                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let viewController:UIViewController = UIStoryboard(name: "DesignSprint", bundle: nil).instantiateViewControllerWithIdentifier("LogIn")
+                        let viewController:UIViewController = UIStoryboard(name: "DesignSprint", bundle: nil).instantiateViewControllerWithIdentifier("LogInViewController")
                         self.presentViewController(viewController, animated: true, completion: nil)
 //                    })
                 }

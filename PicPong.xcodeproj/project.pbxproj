@@ -27,6 +27,7 @@
 		934575191C7BB8A900681FD9 /* MainSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934575181C7BB8A900681FD9 /* MainSelectionView.swift */; };
 		934575201C7BFCF600681FD9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9345751F1C7BFCF600681FD9 /* Constant.swift */; };
 		934575261C7D27A700681FD9 /* DesignSprint.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934575251C7D27A700681FD9 /* DesignSprint.storyboard */; };
+		935B68891C7FFF95002D3A26 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B68881C7FFF95002D3A26 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		934575181C7BB8A900681FD9 /* MainSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSelectionView.swift; sourceTree = "<group>"; };
 		9345751F1C7BFCF600681FD9 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		934575251C7D27A700681FD9 /* DesignSprint.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DesignSprint.storyboard; sourceTree = "<group>"; };
+		935B68881C7FFF95002D3A26 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A8888C5378C6CF45FAB033CA /* Pods-PicPong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicPong/Pods-PicPong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,7 @@
 				930E14291C7D2DB900732CA0 /* PongCollectionView.swift */,
 				930E142B1C7D2E0000732CA0 /* PongIterationView.swift */,
 				930E14371C7EB63300732CA0 /* SignUpViewController.swift */,
+				935B68881C7FFF95002D3A26 /* LogInViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				930E142C1C7D2E0000732CA0 /* PongIterationView.swift in Sources */,
 				930E143A1C7F8F9B00732CA0 /* Player.swift in Sources */,
 				934575191C7BB8A900681FD9 /* MainSelectionView.swift in Sources */,
+				935B68891C7FFF95002D3A26 /* LogInViewController.swift in Sources */,
 				930E14381C7EB63300732CA0 /* SignUpViewController.swift in Sources */,
 				930E14301C7D3ABE00732CA0 /* PongCell.swift in Sources */,
 				930E14341C7D3B7700732CA0 /* TaggedCell.swift in Sources */,
