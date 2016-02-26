@@ -201,6 +201,8 @@
                     <connections>
                         <outlet property="clearButton" destination="tV8-TO-Tvf" id="qG7-Bw-Rd1"/>
                         <outlet property="drawingView" destination="kJa-bP-2aF" id="fug-lt-AQI"/>
+                        <outlet property="parentView" destination="uLM-Ld-4Yl" id="ple-QM-QPC"/>
+                        <outlet property="pongImageView" destination="FG5-Vh-Z0h" id="sJZ-ca-NFx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQz-ab-bYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -347,6 +349,9 @@
                                             <constraint firstAttribute="bottom" secondItem="3Il-dl-Waf" secondAttribute="bottom" id="gPq-ug-iXz"/>
                                         </constraints>
                                         <size key="customSize" width="125" height="125"/>
+                                        <connections>
+                                            <outlet property="pongImageView" destination="3Il-dl-Waf" id="H5U-v6-01c"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

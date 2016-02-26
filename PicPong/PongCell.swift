@@ -10,6 +10,7 @@ import UIKit
 
 class PongCell: UICollectionViewCell {
     
+    @IBOutlet weak var pongImageView: UIImageView!
     
     
 }

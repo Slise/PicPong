@@ -8,10 +8,11 @@
 
 import Foundation
 import Parse
+import ParseUI
 
 class Photo: PFObject, PFSubclassing {
     
-    @NSManaged var pongImage: UIImage
+    @NSManaged var pongImage: PFFile
     
     override class func initialize() {
         struct Static {

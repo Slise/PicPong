@@ -12,15 +12,21 @@ import Parse
 class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var receivedPongCollectionView: UICollectionView!
+    var pongImageArray = [Photo]()
+    var refreshControl: UIRefreshControl!
+    let imagePicker = UIImagePickerController()
+
     
     override func viewDidLoad() {
         self.imagePicker.delegate = self
         parseQuery()
     }
     
-// MARK: - UIImagePickerControllerDelegate Methods
-    let imagePicker = UIImagePickerController()
+    override func viewWillAppear(animated: Bool) {
+        parseQuery()
+    }
     
+// MARK: - UIImagePickerControllerDelegate Methods
     func getPongImage() {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
@@ -28,26 +34,30 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        if let imageData = UIImageJPEGRepresentation(image, 0.50) {
-        let imageFile = PFFile(name:"pong.png", data:imageData)
-        let pong = PFObject(className:"Photo")
-        pong["pongImage"] = imageFile
-        pong.saveInBackground()
-        }
         dismissViewControllerAnimated(true, completion: nil)
     }
+
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        goToEditPong()
-        dismissViewControllerAnimated(true, completion: nil)
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            performSegueWithIdentifier("segueToEdit", sender: image)
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+
     }
-    
-    func goToEditPong() {
-        performSegueWithIdentifier("segueToEdit", sender: self)
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToEdit" {
+            let editPongVC = segue.destinationViewController as! EditPongViewController
+            if let image = sender as? UIImage {
+                editPongVC.image = image
+            }
+        }
     }
 
 //MARK: UICollectionViewControllerDelegate Methods
@@ -56,11 +66,26 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let reuseIdentifier = (indexPath.item == 0) ? "cameraCell" : "pongCell"
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
-        cell.pongImageView.image = nil
-        let incomingPong = pongImageArray[indexPath.item]
-    return cell
+        
+        if reuseIdentifier == "pongCell" {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PongCell
+            cell.pongImageView.image = nil
+            let index = indexPath.item-1
+            let incomingPong = pongImageArray[index]
+            incomingPong.pongImage.getDataInBackgroundWithBlock{(data, error) -> Void in
+                if error == nil {
+                    let image = UIImage(data: data!)
+                    print("hey hey \(image)")
+                    cell.pongImageView.image = image
+                }
+            }
+            return cell
+        }else {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
+            return cell
+        }
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -68,20 +93,18 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             getPongImage()
             
         }else {
-            goToEditPong()
+            
         }
     }
     
 //Mark: PFQuery to load to collection view
-    var pongImageArray:NSArray = NSArray()
-    var refreshControl: UIRefreshControl!
-    
     func parseQuery() {
         let query = Photo.query()
-//        query.orderByDescending("createdAt")
+        query?.orderByDescending("createdAt")
         query?.findObjectsInBackgroundWithBlock {(objects, error) -> Void in
-            if error == nil {
-                self.pongImageArray = objects!
+            
+            if let photos = objects as? [Photo] where error == nil {
+                self.pongImageArray = photos
                 print("\(self.pongImageArray)")
             }
             self.receivedPongCollectionView?.reloadData()

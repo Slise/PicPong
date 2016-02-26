@@ -12,12 +12,15 @@ import ParseUI
 
 class EditPongViewController: UIViewController {
 
-
+    var image = UIImage()
+    @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var drawingView: DrawingView!
+    @IBOutlet weak var pongImageView: UIImageView!
     @IBOutlet weak var clearButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pongImageView.image = image
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,24 +29,29 @@ class EditPongViewController: UIViewController {
     }
     
     func captureScreen() {
-        UIGraphicsBeginImageContext(drawingView.frame.size)
-        drawingView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        UIGraphicsBeginImageContext(parentView.frame.size)
+        parentView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let editedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        if let newEditedImage = UIImageJPEGRepresentation(editedImage, 0.50) {
-            let imageFile = PFFile(name: "pong.png", data: newEditedImage)
-            let pong = PFObject(className: "Photo")
-            pong["pongImage"] = imageFile
-            pong.saveInBackground()
+        if let newEditedImage = UIImageJPEGRepresentation(editedImage, 0.50),
+            let imageFile = PFFile(data:newEditedImage){
+                let pong = Photo()
+                pong.pongImage = imageFile
+                imageFile.saveInBackgroundWithBlock({ (success, error) -> Void in
+                    if success {
+                        print("success saving file")
+                    }
+                })
+                pong.saveInBackgroundWithBlock({ (success, error)  in
+                    if success{
+                        print("success saving photo")
+                        
+                        //send notification
+                    }
+                })
         }
-        //drawViewHierarchyInRect will draw the view with both bezier and picture
-        //       view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates:true)
-        //        var editedImage = UIImage()
-        //        editedImage = UIGraphicsGetImageFromCurrentImageContext()
-        //        UIGraphicsEndImageContext()
     }
-    
     
     @IBAction func clearButtonPressed(sender: AnyObject) {
          drawingView.clear()
@@ -51,16 +59,6 @@ class EditPongViewController: UIViewController {
     
     @IBAction func sendPongPressed(sender: AnyObject) {
         captureScreen()
+        navigationController?.popToRootViewControllerAnimated(true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
