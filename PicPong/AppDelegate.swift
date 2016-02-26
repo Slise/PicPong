@@ -19,18 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        Pong.registerSubclass()
+        Player.registerSubclass()
+        
         Parse.setApplicationId(Constant.applicationID.rawValue,
             clientKey: Constant.clientID.rawValue)
         
-        let currentUser = PFInstallation.currentInstallation()
-        let pong = Pong()
-        pong.originator = currentUser
-        
-        if pong.originator == currentUser {
-            // no
-        } else {
-            // yes!
-        }
+//        let currentUser = Player.currentUser()
+//        let pong = Pong()
+//        pong.originalPoster = currentUser
+//        
+//        if pong.originalPoster == currentUser {
+//            // no
+//        } else {
+//            // yes!
+//        }
         
         return true
     }

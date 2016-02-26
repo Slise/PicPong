@@ -7,22 +7,52 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class EditPongViewController: UIViewController {
 
+
+    @IBOutlet weak var drawingView: DrawingView!
+    @IBOutlet weak var clearButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//drawViewHierarchyInRect will draw the view with both bezier and picture
-       // view.drawViewHierarchyInRect(<#T##rect: CGRect##CGRect#>, afterScreenUpdates: <#T##Bool#>)
-        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    func captureScreen() {
+        UIGraphicsBeginImageContext(drawingView.frame.size)
+        drawingView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let editedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        if let newEditedImage = UIImageJPEGRepresentation(editedImage, 0.50) {
+            let imageFile = PFFile(name: "pong.png", data: newEditedImage)
+            let pong = PFObject(className: "Photo")
+            pong["pongImage"] = imageFile
+            pong.saveInBackground()
+        }
+        //drawViewHierarchyInRect will draw the view with both bezier and picture
+        //       view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates:true)
+        //        var editedImage = UIImage()
+        //        editedImage = UIGraphicsGetImageFromCurrentImageContext()
+        //        UIGraphicsEndImageContext()
+    }
+    
+    
+    @IBAction func clearButtonPressed(sender: AnyObject) {
+         drawingView.clear()
+    }
+    
+    @IBAction func sendPongPressed(sender: AnyObject) {
+        captureScreen()
+    }
+    
     /*
     // MARK: - Navigation
 

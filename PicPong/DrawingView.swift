@@ -11,10 +11,15 @@ import UIKit
 class DrawingView: UIView {
     
     var drawingPath = UIBezierPath()
-
+    
     override func drawRect(rect: CGRect) {
         UIColor.redColor().setStroke()
         drawingPath.stroke()
+    }
+    
+    func clear() {
+        drawingPath.removeAllPoints()
+        setNeedsDisplay()
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -1,19 +1,17 @@
 //
-//  Pong.swift
+//  Photo.swift
 //  PicPong
 //
-//  Created by Benson Huynh on 2016-02-22.
+//  Created by Benson Huynh on 2016-02-25.
 //  Copyright © 2016 Benson Huynh. All rights reserved.
 //
 
 import Foundation
 import Parse
 
-class Pong : PFObject, PFSubclassing {
+class Photo: PFObject, PFSubclassing {
     
-    @NSManaged var photos: [UIImage]
-    @NSManaged var assignee: Player
-    @NSManaged var originator: Player
+    @NSManaged var pongImage: UIImage
     
     override class func initialize() {
         struct Static {
@@ -24,6 +22,6 @@ class Pong : PFObject, PFSubclassing {
         }
     }
     static func parseClassName() -> String {
-        return "Pong"
+        return "Photo"
     }
 }
