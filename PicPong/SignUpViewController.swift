@@ -59,21 +59,17 @@ class SignUpViewController: UIViewController {
                 if ((error) != nil) {
                     let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default) { action in
-                        // Do nothing
                     }
                     alert.addAction(ok)
                     self.presentViewController(alert, animated: true) {}
                 } else {
                     let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: .Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default) { action in
-                        // Do nothing
                     }
                     alert.addAction(ok)
                     self.presentViewController(alert, animated: true) {}
-//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let viewController:UIViewController = UIStoryboard(name: "DesignSprint", bundle: nil).instantiateViewControllerWithIdentifier("LogInViewController")
                         self.presentViewController(viewController, animated: true, completion: nil)
-//                    })
                 }
             })
         }

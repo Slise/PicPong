@@ -25,32 +25,69 @@ class EditPongViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    func captureScreen() {
+    func savePong() {
+        
         UIGraphicsBeginImageContext(parentView.frame.size)
         parentView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let editedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        if let newEditedImage = UIImageJPEGRepresentation(editedImage, 0.50),
-            let imageFile = PFFile(data:newEditedImage){
-                let pong = Photo()
-                pong.pongImage = imageFile
-                imageFile.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    if success {
-                        print("success saving file")
-                    }
-                })
-                pong.saveInBackgroundWithBlock({ (success, error)  in
-                    if success{
-                        print("success saving photo")
-                        
-                        //send notification
-                    }
-                })
+        guard let user = Player.currentUser(),
+            let pongImage = editedImage else { return }
+        let newImage = Photo()
+        newImage.player = user
+        
+        var pictureData = UIImagePNGRepresentation(pongImage)!
+        
+        while pictureData.length > 5000000 {
+            pictureData = UIImageJPEGRepresentation(pongImage, 0.5)!
         }
+        
+        if let newEditedimage = PFFile(data: pictureData) {
+            newImage.pongImage = newEditedimage
+            newEditedimage.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if success {
+                    print("success")
+                }
+            })
+        }
+        
+        newImage.saveInBackgroundWithBlock({ (success, error) -> Void in
+            if success {
+                print("pong saved")
+                let pong = Pong()
+                pong.photos.append(newImage)
+                pong.originalPoster = Player.currentUser()!
+                pong.nextPlayer = nil
+                pong.saveInBackgroundWithBlock {(success, error) -> Void in
+                    if success {
+                        print("added image to pong array")
+                    } else {
+                        print("error")
+                    }
+                }
+            } else {
+                print("Error: \(error)")
+            }
+        })
+//        if let newEditedImage = UIImageJPEGRepresentation(editedImage, 0.50),
+//            let imageFile = PFFile(data:newEditedImage){
+//                let pong = Photo()
+//                pong.pongImage = imageFile
+//                imageFile.saveInBackgroundWithBlock({ (success, error) -> Void in
+//                    if success {
+//                        print("success saving file")
+//                    }
+//                })
+//                pong.saveInBackgroundWithBlock({ (success, error)  in
+//                    if success{
+//                        print("success saving photo")
+//                        
+//                    }
+//                })
+//        }
     }
     
     @IBAction func clearButtonPressed(sender: AnyObject) {
@@ -58,7 +95,7 @@ class EditPongViewController: UIViewController {
     }
     
     @IBAction func sendPongPressed(sender: AnyObject) {
-        captureScreen()
+        savePong()
         navigationController?.popToRootViewControllerAnimated(true)
     }
 }

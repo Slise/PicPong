@@ -7,12 +7,13 @@
 //
 
 import Foundation
-import Parse
 import ParseUI
+import Parse
 
 class Photo: PFObject, PFSubclassing {
     
     @NSManaged var pongImage: PFFile
+    @NSManaged var player: Player
     
     override class func initialize() {
         struct Static {

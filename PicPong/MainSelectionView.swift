@@ -15,10 +15,16 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     var pongImageArray = [Photo]()
     var refreshControl: UIRefreshControl!
     let imagePicker = UIImagePickerController()
-
     
     override func viewDidLoad() {
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: Selector("imageRefresh"), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.tintColor = UIColor.whiteColor()
+        self.receivedPongCollectionView?.addSubview(refreshControl)
         self.imagePicker.delegate = self
+        receivedPongCollectionView?.alwaysBounceVertical = true
+        self.view.addSubview(receivedPongCollectionView!)
         parseQuery()
         let pongPlayer = Player.currentUser()
         if pongPlayer == nil {
@@ -36,7 +42,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
 // MARK: - UIImagePickerControllerDelegate Methods
-    func getPongImage() {
+    func createPongImage() {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
@@ -57,7 +63,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             performSegueWithIdentifier("segueToEdit", sender: image)
             dismissViewControllerAnimated(true, completion: nil)
         }
-
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -86,7 +91,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             incomingPong.pongImage.getDataInBackgroundWithBlock{(data, error) -> Void in
                 if error == nil {
                     let image = UIImage(data: data!)
-                    print("hey hey \(image)")
                     cell.pongImageView.image = image
                 }
             }
@@ -99,8 +103,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item == 0 {
-            getPongImage()
-            
+            createPongImage()
         }else {
             
         }
@@ -122,6 +125,22 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     func imageRefresh() {
         parseQuery()
+        getNextPlayer({ (player) -> Void in
+        })
         self.refreshControl.endRefreshing()
     }
+    
+    func getNextPlayer(completion: (Player) -> Void) {
+        if let query = Player.query(),
+            let user = Player.currentUser() {
+                query.whereKey("objectId", equalTo: user.objectId!)
+                query.findObjectsInBackgroundWithBlock { (objects, error) in
+                    let randomIndex = arc4random_uniform(UInt32(objects!.count))
+                    let randomUser = objects![Int(randomIndex)]
+                    completion(randomUser as! Player)
+                }
+        }
+        
+    }
+
 }

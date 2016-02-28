@@ -11,9 +11,9 @@ import Parse
 
 class Pong : PFObject, PFSubclassing {
     
-    @NSManaged var photos: [UIImage]
-    @NSManaged var assignee: Player
-    @NSManaged var originator: Player
+    @NSManaged var photos: [Photo]
+    @NSManaged var nextPlayer: Player?
+    @NSManaged var originalPoster: Player
     
     override class func initialize() {
         struct Static {
@@ -23,7 +23,16 @@ class Pong : PFObject, PFSubclassing {
             self.registerSubclass()
         }
     }
+    
     static func parseClassName() -> String {
         return "Pong"
     }
+    
+    //    convenience init(newPhotos: [Photo], newAssignee: Player?, newOriginalPoster: Player) {
+    //        self.init()
+    //        photos = newPhotos
+    //        assignee = newAssignee
+    //        originalPoster = newOriginalPoster
+    //    }
+
 }
