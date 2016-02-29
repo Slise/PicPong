@@ -28,11 +28,13 @@ class Pong : PFObject, PFSubclassing {
         return "Pong"
     }
     
-    //    convenience init(newPhotos: [Photo], newAssignee: Player?, newOriginalPoster: Player) {
-    //        self.init()
-    //        photos = newPhotos
-    //        assignee = newAssignee
-    //        originalPoster = newOriginalPoster
-    //    }
+//    convenience init(image: UIImage, player: Player) {
+//        self.init()
+//        
+//        let photo = Photo(image: image)
+//        
+//        photos = [photo]
+//        originalPlayer = player
+//    }
 
 }

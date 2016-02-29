@@ -11,8 +11,10 @@ import Parse
 import ParseUI
 
 class EditPongViewController: UIViewController {
-
+    
+    var pong: Pong!
     var image = UIImage()
+    
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var drawingView: DrawingView!
     @IBOutlet weak var pongImageView: UIImageView!
@@ -20,15 +22,21 @@ class EditPongViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pongImageView.image = image
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        
+        if pong == nil {
+            self.pongImageView.image = image
+            
+        } else {
+            
+            let imageFile = pong.photos.last!.pongImage
+            imageFile.getDataInBackgroundWithBlock { data, error in
+                let image = UIImage(data:data!)
+                self.pongImageView.image = image
+            }
+        }
     }
     
     func savePong() {
-        
         UIGraphicsBeginImageContext(parentView.frame.size)
         parentView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let editedImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -60,9 +68,11 @@ class EditPongViewController: UIViewController {
                 let pong = Pong()
                 pong.photos.append(newImage)
                 pong.originalPlayer = Player.currentUser()!
-                pong.nextPlayer = nil
                 pong.saveInBackgroundWithBlock {(success, error) -> Void in
                     if success {
+                        pong.photos.append(newImage)
+                        pong.nextPlayer = nil
+                        pong.saveInBackground()
                         print("added image to pong array")
                     } else {
                         print("error")

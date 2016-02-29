@@ -26,4 +26,5 @@ class Photo: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "Photo"
     }
+    
 }
