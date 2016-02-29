@@ -13,7 +13,7 @@ class Pong : PFObject, PFSubclassing {
     
     @NSManaged var photos: [Photo]
     @NSManaged var nextPlayer: Player?
-    @NSManaged var originalPoster: Player
+    @NSManaged var originalPlayer: Player
     
     override class func initialize() {
         struct Static {

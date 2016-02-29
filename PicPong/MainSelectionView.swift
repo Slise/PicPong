@@ -25,7 +25,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         self.imagePicker.delegate = self
         receivedPongCollectionView?.alwaysBounceVertical = true
         self.view.addSubview(receivedPongCollectionView!)
-        parseQuery()
+        imageRefresh()
         let pongPlayer = Player.currentUser()
         if pongPlayer == nil {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -38,10 +38,12 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     }
 
     override func viewWillAppear(animated: Bool) {
-        parseQuery()
+        super.viewWillAppear(true)
+        imageRefresh()
     }
     
 // MARK: - UIImagePickerControllerDelegate Methods
+    
     func createPongImage() {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
@@ -58,7 +60,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             performSegueWithIdentifier("segueToEdit", sender: image)
             dismissViewControllerAnimated(true, completion: nil)
@@ -75,12 +76,12 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     }
 
 //MARK: UICollectionViewControllerDelegate Methods
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pongImageArray.count+1
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let reuseIdentifier = (indexPath.item == 0) ? "cameraCell" : "pongCell"
         
         if reuseIdentifier == "pongCell" {
@@ -110,37 +111,42 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     }
     
 //Mark: PFQuery to load to collection view
-    func parseQuery() {
-        let query = Photo.query()
-        query?.orderByDescending("createdAt")
-        query?.findObjectsInBackgroundWithBlock {(objects, error) -> Void in
-            
-            if let photos = objects as? [Photo] where error == nil {
-                self.pongImageArray = photos
-                print("\(self.pongImageArray)")
-            }
-            self.receivedPongCollectionView?.reloadData()
-        }
-    }
     
     func imageRefresh() {
-        parseQuery()
-        getNextPlayer({ (player) -> Void in
+        getIncomingPong({ (player) -> Void in
         })
         self.refreshControl.endRefreshing()
     }
     
-    func getNextPlayer(completion: (Player) -> Void) {
-        if let query = Player.query(),
-            let user = Player.currentUser() {
-                query.whereKey("objectId", equalTo: user.objectId!)
-                query.findObjectsInBackgroundWithBlock { (objects, error) in
-                    let randomIndex = arc4random_uniform(UInt32(objects!.count))
-                    let randomUser = objects![Int(randomIndex)]
-                    completion(randomUser as! Player)
+    func getIncomingPong(completion: (Player) -> Void) {
+        if let query = Pong.query() {
+            query.whereKeyDoesNotExist("nextPlayer")
+            query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+                print("available pongs for play \(objects)")
+                if let photos = objects as? [Photo] where error == nil {
+                    self.pongImageArray = photos
                 }
+                self.receivedPongCollectionView?.reloadData()
+            }
         }
-        
     }
-
 }
+
+
+
+
+//    func parseQuery() {
+//        let query = Photo.query()
+//        query?.orderByDescending("createdAt")
+//        query?.findObjectsInBackgroundWithBlock {(objects, error) -> Void in
+//            if let photos = objects as? [Photo] where error == nil {
+//                self.pongImageArray = photos
+//                print("\(self.pongImageArray)")
+//            }
+//            self.receivedPongCollectionView?.reloadData()
+//        }
+//    }
+//            let randomIndex = arc4random_uniform(UInt32(objects!.count))
+//            let randomUser = objects![Int(randomIndex)]
+//            completion(randomUser as! Player)
+

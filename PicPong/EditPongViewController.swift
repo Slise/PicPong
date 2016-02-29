@@ -59,7 +59,7 @@ class EditPongViewController: UIViewController {
                 print("pong saved")
                 let pong = Pong()
                 pong.photos.append(newImage)
-                pong.originalPoster = Player.currentUser()!
+                pong.originalPlayer = Player.currentUser()!
                 pong.nextPlayer = nil
                 pong.saveInBackgroundWithBlock {(success, error) -> Void in
                     if success {

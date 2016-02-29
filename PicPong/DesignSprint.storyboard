@@ -408,9 +408,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="79r-qn-dtL" secondAttribute="trailing" id="t7O-qs-LSn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Bo-XJ-Lrn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fwq-aW-1Tr"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="8Bo-XJ-Lrn"/>
                     <connections>
                         <outlet property="receivedPongCollectionView" destination="79r-qn-dtL" id="e0t-bC-xap"/>
                         <segue destination="ffY-eT-EVn" kind="show" identifier="segueToEdit" id="gjU-Kb-Cjb"/>
