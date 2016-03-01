@@ -90,7 +90,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="taggedCell" id="Hko-pT-6sL">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="finishedPongCell" id="Hko-pT-6sL" customClass="DoneCell" customModule="PicPong" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -112,6 +112,7 @@
                                         </constraints>
                                         <size key="customSize" width="125" height="125"/>
                                         <connections>
+                                            <outlet property="donePongImageView" destination="BqV-JY-59n" id="hYu-Oo-gSB"/>
                                             <segue destination="z8x-2f-jc7" kind="show" identifier="segueToIteration" id="lga-az-Tfr"/>
                                         </connections>
                                     </collectionViewCell>
@@ -131,6 +132,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Lz-1V-xlB"/>
+                    <connections>
+                        <outlet property="pongCollectionView" destination="Hps-H8-tej" id="dww-ZU-azv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7C-TM-8dF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -338,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="79r-qn-dtL">
-                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2ov-tw-0sg">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -347,14 +351,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cameraCell" id="50d-in-vkP">
-                                        <rect key="frame" x="0.0" y="64" width="125" height="125"/>
+                                        <rect key="frame" x="0.0" y="64" width="175" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_pong" translatesAutoresizingMaskIntoConstraints="NO" id="a4B-hh-zJA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -366,17 +370,17 @@
                                             <constraint firstItem="a4B-hh-zJA" firstAttribute="leading" secondItem="50d-in-vkP" secondAttribute="leading" id="fo8-0p-RMh"/>
                                             <constraint firstAttribute="trailing" secondItem="a4B-hh-zJA" secondAttribute="trailing" id="j97-Dv-OPW"/>
                                         </constraints>
-                                        <size key="customSize" width="125" height="125"/>
+                                        <size key="customSize" width="175" height="175"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pongCell" id="pND-IR-xN2" customClass="PongCell" customModule="PicPong" customModuleProvider="target">
-                                        <rect key="frame" x="145" y="64" width="125" height="125"/>
+                                        <rect key="frame" x="212.5" y="64" width="175" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Il-dl-Waf">
-                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -388,7 +392,7 @@
                                             <constraint firstAttribute="trailing" secondItem="3Il-dl-Waf" secondAttribute="trailing" id="I2N-vp-pin"/>
                                             <constraint firstAttribute="bottom" secondItem="3Il-dl-Waf" secondAttribute="bottom" id="gPq-ug-iXz"/>
                                         </constraints>
-                                        <size key="customSize" width="125" height="125"/>
+                                        <size key="customSize" width="175" height="175"/>
                                         <connections>
                                             <outlet property="pongImageView" destination="3Il-dl-Waf" id="H5U-v6-01c"/>
                                         </connections>
@@ -402,11 +406,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="79r-qn-dtL" secondAttribute="trailing" id="7F7-kO-pKV"/>
                             <constraint firstItem="Acq-xi-3JY" firstAttribute="top" secondItem="79r-qn-dtL" secondAttribute="bottom" id="L3G-im-LQb"/>
+                            <constraint firstItem="Acq-xi-3JY" firstAttribute="top" secondItem="79r-qn-dtL" secondAttribute="bottom" id="MvI-sY-pyJ"/>
+                            <constraint firstItem="79r-qn-dtL" firstAttribute="top" secondItem="fze-Cx-tR9" secondAttribute="bottom" id="WWD-m9-RS0"/>
                             <constraint firstItem="79r-qn-dtL" firstAttribute="leading" secondItem="6Xh-rc-LHB" secondAttribute="leadingMargin" id="fsM-CU-uzh"/>
                             <constraint firstItem="79r-qn-dtL" firstAttribute="top" secondItem="fze-Cx-tR9" secondAttribute="bottom" id="gaK-sX-swQ"/>
+                            <constraint firstItem="79r-qn-dtL" firstAttribute="leading" secondItem="6Xh-rc-LHB" secondAttribute="leading" id="nMp-UG-WQr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="79r-qn-dtL" secondAttribute="trailing" id="t7O-qs-LSn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fsM-CU-uzh"/>
+                                <exclude reference="gaK-sX-swQ"/>
+                                <exclude reference="t7O-qs-LSn"/>
+                                <exclude reference="L3G-im-LQb"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="8Bo-XJ-Lrn"/>
                     <connections>

@@ -62,6 +62,10 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
 
 //MARK: UICollectionViewControllerDelegate Methods
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(175, 175)
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pongImageArray.count + 1
     }
@@ -94,7 +98,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     func loadData() {
         if let query = Pong.query() {
 //            query.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
-//            query.whereKeyDoesNotExist("nextPlayer")
+            query.whereKeyDoesNotExist("nextPlayer")
             query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{ objects, error in
                 self.pongImageArray = objects as! [Pong]

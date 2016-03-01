@@ -32,13 +32,4 @@ class Pong : PFObject, PFSubclassing {
         return nextPlayer == originalPlayer
     }
     
-//    convenience init(image: UIImage, player: Player) {
-//        self.init()
-//        
-//        let photo = Photo(image: image)
-//        
-//        photos = [photo]
-//        originalPlayer = player
-//    }
-
 }

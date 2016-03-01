@@ -13,7 +13,7 @@
 		930E142E1C7D2E2800732CA0 /* EditPongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142D1C7D2E2800732CA0 /* EditPongViewController.swift */; };
 		930E14301C7D3ABE00732CA0 /* PongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E142F1C7D3ABE00732CA0 /* PongCell.swift */; };
 		930E14321C7D3AF400732CA0 /* PongIterationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14311C7D3AF400732CA0 /* PongIterationCell.swift */; };
-		930E14341C7D3B7700732CA0 /* TaggedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14331C7D3B7700732CA0 /* TaggedCell.swift */; };
+		930E14341C7D3B7700732CA0 /* DoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14331C7D3B7700732CA0 /* DoneCell.swift */; };
 		930E14361C7E709D00732CA0 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14351C7E709D00732CA0 /* DrawingView.swift */; };
 		930E14381C7EB63300732CA0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14371C7EB63300732CA0 /* SignUpViewController.swift */; };
 		930E143A1C7F8F9B00732CA0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930E14391C7F8F9B00732CA0 /* Player.swift */; };
@@ -55,7 +55,7 @@
 		930E142D1C7D2E2800732CA0 /* EditPongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPongViewController.swift; sourceTree = "<group>"; };
 		930E142F1C7D3ABE00732CA0 /* PongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongCell.swift; sourceTree = "<group>"; };
 		930E14311C7D3AF400732CA0 /* PongIterationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PongIterationCell.swift; sourceTree = "<group>"; };
-		930E14331C7D3B7700732CA0 /* TaggedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaggedCell.swift; sourceTree = "<group>"; };
+		930E14331C7D3B7700732CA0 /* DoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneCell.swift; sourceTree = "<group>"; };
 		930E14351C7E709D00732CA0 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		930E14371C7EB63300732CA0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		930E14391C7F8F9B00732CA0 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				930E142F1C7D3ABE00732CA0 /* PongCell.swift */,
+				930E14331C7D3B7700732CA0 /* DoneCell.swift */,
 				930E14311C7D3AF400732CA0 /* PongIterationCell.swift */,
-				930E14331C7D3B7700732CA0 /* TaggedCell.swift */,
 				930E14351C7E709D00732CA0 /* DrawingView.swift */,
 			);
 			name = View;
@@ -424,7 +424,7 @@
 				935B68891C7FFF95002D3A26 /* LogInViewController.swift in Sources */,
 				930E14381C7EB63300732CA0 /* SignUpViewController.swift in Sources */,
 				930E14301C7D3ABE00732CA0 /* PongCell.swift in Sources */,
-				930E14341C7D3B7700732CA0 /* TaggedCell.swift in Sources */,
+				930E14341C7D3B7700732CA0 /* DoneCell.swift in Sources */,
 				930E142A1C7D2DB900732CA0 /* PongCollectionView.swift in Sources */,
 				930E14361C7E709D00732CA0 /* DrawingView.swift in Sources */,
 				934574DC1C7A7A9200681FD9 /* AppDelegate.swift in Sources */,

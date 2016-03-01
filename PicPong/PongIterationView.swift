@@ -9,15 +9,12 @@
 import UIKit
 
 class PongIterationView: UIViewController {
+    
+    var pong: Pong?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-       
     }
     
 }
