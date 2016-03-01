@@ -34,14 +34,13 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        imageRefresh()
+        
+        loadData()
     }
     
-// MARK: - UIImagePickerControllerDelegate Methods
+    // MARK: - UIImagePickerControllerDelegate Methods
     
-    func createPongImage() {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
+    func showImagePicker() {
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
@@ -61,41 +60,22 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         }
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueToEdit" {
-            guard let editPongVC = segue.destinationViewController as? EditPongViewController else { return }
-            
-            if let pongToPass = sender as? Pong {
-                editPongVC.pong = pongToPass
-            } else if let imageToPass = sender as? UIImage {
-                editPongVC.image = imageToPass
-            }
-        }
-    }
-
 //MARK: UICollectionViewControllerDelegate Methods
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pongImageArray.count+1
+        return pongImageArray.count + 1
     }
 
+    let cameraCellIdentifier = "cameraCell"
+    let pongCellIdentifier = "pongCell"
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let reuseIdentifier = (indexPath.item == 0) ? "cameraCell" : "pongCell"
+        let reuseIdentifier = indexPath.item == 0 ? cameraCellIdentifier : pongCellIdentifier
         
-        if reuseIdentifier == "pongCell" {
+        if reuseIdentifier == pongCellIdentifier {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PongCell
-            cell.pongImageView.image = nil
-            let index = indexPath.item-1
-            
-            let incomingPong = pongImageArray[index]
-            incomingPong.pongImage.getDataInBackgroundWithBlock{(data, error) -> Void in
-                if error == nil {
-                    let image = UIImage(data: data!)
-                    cell.pongImageView.image = image
-                }
-            }
+            cell.pong = pongImageArray[indexPath.row-1]
             return cell
-        }else {
+        } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as UICollectionViewCell
             return cell
         }
@@ -103,62 +83,38 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if indexPath.item == 0 {
-            createPongImage()
-        }else {
+            showImagePicker()
+        } else {
             performSegueWithIdentifier("segueToEdit", sender: pongImageArray[indexPath.row-1])
         }
     }
-    
-//    func imageRefresh() {
-//        getIncomingPong({ (player) -> Void in
-//        })
-//        self.refreshControl.endRefreshing()
-//    }
-    
-//Mark: PFQuery to load incoming Pongs for collection view
-    
-//    func getIncomingPong(completion: (Player) -> Void) {
-//        if let query = Pong.query() {
-//            query.whereKeyDoesNotExist("nextPlayer")
-//            query.includeKey("photos")
-//            query.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
-//                
-//                print("available pong for play \(object)")
-//                if let pong = object as? Pong where error == nil {
-//                    
-//                    pong.nextPlayer = Player.currentUser()
-//                    pong.saveInBackground()
-//    
-//                    if let lastPhoto = pong.photos.last {
-//                        self.pongImageArray.append(lastPhoto)
-//                    }
-//                }
-//                self.receivedPongCollectionView?.reloadData()
-//            })
-//        }
-//    }
     
     // MARK: General Functions
     
     func loadData() {
         if let query = Pong.query() {
-            query.whereKeyDoesNotExist("nextPlayer")
-            
+//            query.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
+//            query.whereKeyDoesNotExist("nextPlayer")
+            query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{ objects, error in
                 self.pongImageArray = objects as! [Pong]
+                
                 self.receivedPongCollectionView.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
     
     func setup() {
         imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
         receivedPongCollectionView?.alwaysBounceVertical = true
     }
     
     func addRefreshControl() {
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("imageRefresh"), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: Selector("loadData"), forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         receivedPongCollectionView.addSubview(refreshControl)
     }
@@ -174,22 +130,18 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             print("User \(pongPlayer?.username) is logged in")
         }
     }
+    
+    // MARK: - Segues -
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToEdit" {
+            guard let editPongVC = segue.destinationViewController as? EditPongViewController else { return }
+            
+            if let pongToPass = sender as? Pong {
+                editPongVC.pong = pongToPass
+            } else if let imageToPass = sender as? UIImage {
+                editPongVC.image = imageToPass
+            }
+        }
+    }
 }
-
-
-
-//    func parseQuery() {
-//        let query = Photo.query()
-//        query?.orderByDescending("createdAt")
-//        query?.findObjectsInBackgroundWithBlock {(objects, error) -> Void in
-//            if let photos = objects as? [Photo] where error == nil {
-//                self.pongImageArray = photos
-//                print("\(self.pongImageArray)")
-//            }
-//            self.receivedPongCollectionView?.reloadData()
-//        }
-//    }
-//            let randomIndex = arc4random_uniform(UInt32(objects!.count))
-//            let randomUser = objects![Int(randomIndex)]
-//            completion(randomUser as! Player)
-

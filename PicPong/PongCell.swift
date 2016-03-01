@@ -10,7 +10,30 @@ import UIKit
 
 class PongCell: UICollectionViewCell {
     
-    @IBOutlet weak var pongImageView: UIImageView!
+    // MARK: - Variables -
     
+    var pong: Pong! {
+        didSet {
+            configure()
+        }
+    }
     
+    // MARK: - Outlets -
+    
+    @IBOutlet private weak var pongImageView: UIImageView!
+    
+    // MARK: - General Functions -
+    
+    func configure() {
+        let objectRef = pong
+        pongImageView.image = nil
+        pong.photos.last!.pongImage.getDataInBackgroundWithBlock { data, error in
+            if error == nil {
+                if self.pong == objectRef {
+                    let image = UIImage(data: data!)
+                    self.pongImageView.image = image
+                }
+            }
+        }
+    }
 }
