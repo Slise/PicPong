@@ -98,7 +98,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{ objects, error in
                 self.pongImageArray = objects as! [Pong]
-                
                 self.receivedPongCollectionView.reloadData()
                 self.refreshControl.endRefreshing()
             }

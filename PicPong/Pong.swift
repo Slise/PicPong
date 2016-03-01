@@ -28,6 +28,10 @@ class Pong : PFObject, PFSubclassing {
         return "Pong"
     }
     
+    func isFinished() -> Bool {
+        return nextPlayer == originalPlayer
+    }
+    
 //    convenience init(image: UIImage, player: Player) {
 //        self.init()
 //        

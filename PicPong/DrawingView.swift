@@ -13,7 +13,7 @@ class DrawingView: UIView {
     var drawingPath = UIBezierPath()
     
     override func drawRect(rect: CGRect) {
-        UIColor.redColor().setStroke()
+        UIColor.orangeColor().setStroke()
         drawingPath.stroke()
     }
     
