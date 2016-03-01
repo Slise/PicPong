@@ -26,6 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId(Constant.applicationID.rawValue,
             clientKey: Constant.clientID.rawValue)
         
+        let tabBarController = window!.rootViewController as! UITabBarController
+        let tabBar = tabBarController.tabBar as UITabBar
+        
+        let tabBarItem1 = tabBar.items![0] as UITabBarItem
+        let tabBarItem2 = tabBar.items![1] as UITabBarItem
+        
+        tabBarItem1.selectedImage = UIImage(named: "pong512")
+        tabBarItem2.selectedImage = UIImage(named: "pong515")
+        
         return true
     }
 

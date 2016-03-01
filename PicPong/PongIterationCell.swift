@@ -10,4 +10,27 @@ import UIKit
 
 class PongIterationCell: UICollectionViewCell {
     
+    //MARK: - Variables -
+    
+    var pong: Pong! {
+        didSet {
+            configure()
+        }
+    }
+
+    @IBOutlet weak var pongIterationImage: UIImageView!
+    
+    func configure() {
+        let objectRef = pong
+        pongIterationImage.image = nil
+        pong.photos.last!.pongImage.getDataInBackgroundWithBlock { data, error in
+            if error == nil {
+                if self.pong == objectRef {
+                    let image = UIImage(data: data!)
+                    self.pongIterationImage.image = image
+                }
+            }
+        }
+    }
+
 }

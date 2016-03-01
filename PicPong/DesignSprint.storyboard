@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Pong Iteration View-->
+        <!--Pong Edits-->
         <scene sceneID="dyK-UR-08x">
             <objects>
                 <viewController id="z8x-2f-jc7" customClass="PongIterationView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3v3-0S-z1w">
-                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hOX-ID-GGL">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="iterationCell" id="uRN-CU-cCi">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="iterationCell" id="uRN-CU-cCi" customClass="PongIterationCell" customModule="PicPong" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="175" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -48,6 +48,9 @@
                                             <constraint firstItem="v7V-l5-NEo" firstAttribute="leading" secondItem="uRN-CU-cCi" secondAttribute="leading" id="nnO-NO-f9E"/>
                                         </constraints>
                                         <size key="customSize" width="175" height="175"/>
+                                        <connections>
+                                            <outlet property="pongIterationImage" destination="v7V-l5-NEo" id="pla-vq-82d"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -58,12 +61,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tb2-8P-qZ0" firstAttribute="top" secondItem="3v3-0S-z1w" secondAttribute="bottom" id="8ML-xu-01o"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3v3-0S-z1w" secondAttribute="trailing" id="Owu-RI-jVT"/>
-                            <constraint firstItem="3v3-0S-z1w" firstAttribute="leading" secondItem="DVt-ff-66o" secondAttribute="leadingMargin" id="ih7-Ye-wjW"/>
-                            <constraint firstItem="3v3-0S-z1w" firstAttribute="top" secondItem="NTa-EL-pSc" secondAttribute="bottom" id="zDt-50-hcl"/>
+                            <constraint firstAttribute="trailing" secondItem="3v3-0S-z1w" secondAttribute="trailing" id="MBo-tb-4eG"/>
+                            <constraint firstItem="tb2-8P-qZ0" firstAttribute="top" secondItem="3v3-0S-z1w" secondAttribute="bottom" id="q1j-aJ-C8i"/>
+                            <constraint firstItem="3v3-0S-z1w" firstAttribute="top" secondItem="NTa-EL-pSc" secondAttribute="bottom" id="rEG-NW-ijJ"/>
+                            <constraint firstItem="3v3-0S-z1w" firstAttribute="leading" secondItem="DVt-ff-66o" secondAttribute="leading" id="x7b-oA-rDS"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Pong Edits" id="UpU-vY-UKC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Cy4-Jx-XDq"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="iterationCollectionView" destination="3v3-0S-z1w" id="D7y-af-xu3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dys-1s-97y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,7 +93,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hps-H8-tej">
-                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wnh-5H-sHK">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -125,15 +136,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aZb-qC-67F" firstAttribute="top" secondItem="Hps-H8-tej" secondAttribute="bottom" id="GmW-Sr-1NO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hps-H8-tej" secondAttribute="trailing" id="UvL-l5-TaM"/>
-                            <constraint firstItem="Hps-H8-tej" firstAttribute="top" secondItem="or8-0H-rBg" secondAttribute="bottom" id="j5X-Ks-OqH"/>
-                            <constraint firstItem="Hps-H8-tej" firstAttribute="leading" secondItem="7RB-6r-vYc" secondAttribute="leadingMargin" id="xLQ-nU-w3n"/>
+                            <constraint firstAttribute="trailing" secondItem="Hps-H8-tej" secondAttribute="trailing" id="ICv-l8-JB4"/>
+                            <constraint firstItem="Hps-H8-tej" firstAttribute="leading" secondItem="7RB-6r-vYc" secondAttribute="leading" id="RvU-bv-UOA"/>
+                            <constraint firstItem="Hps-H8-tej" firstAttribute="top" secondItem="or8-0H-rBg" secondAttribute="bottom" id="fs4-ZY-mT1"/>
+                            <constraint firstItem="aZb-qC-67F" firstAttribute="top" secondItem="Hps-H8-tej" secondAttribute="bottom" id="l9v-Dm-mNE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="1Lz-1V-xlB"/>
+                    <navigationItem key="navigationItem" id="1Lz-1V-xlB">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hMS-GB-1LB">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Done Pongs"/>
+                                <segment title="My Done Pongs"/>
+                            </segments>
+                            <connections>
+                                <action selector="donePongFilter:" destination="VCc-yd-Gt0" eventType="valueChanged" id="8Sj-py-k2b"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="pongCollectionView" destination="Hps-H8-tej" id="dww-ZU-azv"/>
+                        <outlet property="segmentedControl" destination="hMS-GB-1LB" id="PXH-wN-CHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7C-TM-8dF" userLabel="First Responder" sceneMemberID="firstResponder"/>

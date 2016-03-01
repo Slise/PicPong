@@ -63,11 +63,11 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
 //MARK: UICollectionViewControllerDelegate Methods
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(175, 175)
+        return CGSizeMake(110, 110)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pongImageArray.count + 1
+        return pongImageArray.count+1
     }
 
     let cameraCellIdentifier = "cameraCell"
@@ -97,11 +97,11 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     func loadData() {
         if let query = Pong.query() {
-//            query.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
+            query.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
             query.whereKeyDoesNotExist("nextPlayer")
             query.includeKey("photos")
-            query.findObjectsInBackgroundWithBlock{ objects, error in
-                self.pongImageArray = objects as! [Pong]
+            query.findObjectsInBackgroundWithBlock{(object, error) in
+                self.pongImageArray = object as! [Pong]
                 self.receivedPongCollectionView.reloadData()
                 self.refreshControl.endRefreshing()
             }
