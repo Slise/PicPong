@@ -65,14 +65,6 @@ class SignUpViewController: UIViewController {
                 } else {
                     
                     self.performSegueWithIdentifier("unwindToMainScreen", sender: nil)
-                    
-//                    let alert = UIAlertController(title: "Success", message: "Signed Up", preferredStyle: .Alert)
-//                    let ok = UIAlertAction(title: "OK", style: .Default) { action in
-//                    }
-//                    alert.addAction(ok)
-//                    self.presentViewController(alert, animated: true) {}
-//                        let viewController:UIViewController = UIStoryboard(name: "DesignSprint", bundle: nil).instantiateViewControllerWithIdentifier("LogInViewController")
-//                        self.presentViewController(viewController, animated: true, completion: nil)
                 }
             })
         }

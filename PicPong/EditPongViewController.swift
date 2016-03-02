@@ -55,8 +55,8 @@ class EditPongViewController: UIViewController {
             if let pong = self.pong {
                 pong.photos.append(parsePhoto)
                 if pong.photos.count > 7 {
-                    pong.finishedPong = true
                     pong.nextPlayer = pong.originalPlayer
+                    pong.finishedPong = true
                 } else {
                     pong.nextPlayer = nil
                 }
@@ -65,20 +65,29 @@ class EditPongViewController: UIViewController {
                 pong.photos = [parsePhoto]
                 pong.originalPlayer = user
                 self.pong = pong
+                pong.nextPlayer = nil
             }
             self.getRandomPlayer({ (player) -> (Void) in
+                let currentUser = Player.currentUser()
+                if currentUser?.objectId == player.objectId {
+                    assertionFailure("id failure")
+                }
                 self.pong?.nextPlayer = player
                 self.pong?.saveInBackgroundWithBlock { success, error in
-                    print("saved edited pong")
+                    print("get next player")
                     self.navigationController?.popToRootViewControllerAnimated(true)
                 }
             })
             
             if (self.pong?.nextPlayer == nil) {
                 self.getRandomPlayer({ (player) -> (Void) in
+                    let currentUser = Player.currentUser()
+                    if currentUser?.objectId == player.objectId {
+                        assertionFailure("id failure")
+                    }
                     self.pong?.nextPlayer = player
                     self.pong?.saveInBackgroundWithBlock { success, error in
-                        print("saved pong")
+                        print("no player")
                         self.navigationController?.popToRootViewControllerAnimated(true)
                     }
                 })
@@ -102,13 +111,17 @@ class EditPongViewController: UIViewController {
         
         if let countQuery = Player.query() {
             countQuery.whereKeyDoesNotExist("nextPlayer")
-            countQuery.whereKey("nextPlayer", notEqualTo: Player.currentUser()!)
+            countQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
+            countQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
             countQuery.countObjectsInBackgroundWithBlock({ (count, error) in
                 if error == nil {
                     if count == 0 {
                         self.savePong()
                     } else {
                         if let innerQuery = Player.query() {
+                            innerQuery.whereKeyDoesNotExist("nextPlayer")
+                            innerQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
+                            innerQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
                             let randomIndex = arc4random_uniform(UInt32(count))
                             innerQuery.skip = Int(randomIndex)
                             innerQuery.limit = 1
