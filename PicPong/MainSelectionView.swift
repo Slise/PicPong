@@ -122,6 +122,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             if let currentPlayer = Player.currentUser() {
                 query.whereKey("nextPlayer", equalTo: currentPlayer)
             }
+            query.whereKey("isFinished", notEqualTo: true)
             query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{(object, error) in
                 self.pongImageArray = object as! [Pong]

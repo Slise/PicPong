@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol DrawingViewDelegate: class {
+    
+    func imageEdited()
+    func clearEdit()
+}
+
 class DrawingView: UIView {
     
+    weak var delegate: DrawingViewDelegate?
     var drawingPath = UIBezierPath()
     
     override func drawRect(rect: CGRect) {
@@ -20,18 +27,18 @@ class DrawingView: UIView {
     func clear() {
         drawingPath.removeAllPoints()
         setNeedsDisplay()
+        delegate?.clearEdit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         drawingPath.lineWidth = 2.0
-      
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if let touchLocation = touches.first?.locationInView(self) {
             drawingPath.moveToPoint(touchLocation)
+            delegate?.imageEdited()
         }
     }
     
@@ -43,6 +50,5 @@ class DrawingView: UIView {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
     }
 }

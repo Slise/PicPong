@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class EditPongViewController: UIViewController {
+class EditPongViewController: UIViewController, DrawingViewDelegate {
     
     // MARK: - Variables -
     
@@ -23,15 +23,26 @@ class EditPongViewController: UIViewController {
     @IBOutlet weak var drawingView: DrawingView!
     @IBOutlet weak var pongImageView: UIImageView!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var pongItButton: UIBarButtonItem!
     
     // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         displayImage()
+        pongItButton.enabled = false
+        drawingView.delegate = self
     }
     
     // MARK: General Methods
+    
+    func imageEdited() {
+        pongItButton.enabled = true
+    }
+    
+    func clearEdit() {
+        pongItButton.enabled = false
+    }
     
     func displayImage() {
         if pong == nil {
@@ -54,7 +65,7 @@ class EditPongViewController: UIViewController {
             
             if let pong = self.pong {
                 pong.photos.append(parsePhoto)
-                if pong.photos.count > 7 {
+                if pong.photos.count > 7 || pong.nextPlayer?.objectId == pong.originalPlayer.objectId {
                     pong.nextPlayer = pong.originalPlayer
                     pong.finishedPong = true
                 } else {
@@ -67,6 +78,7 @@ class EditPongViewController: UIViewController {
                 self.pong = pong
                 pong.nextPlayer = nil
             }
+            
             self.getRandomPlayer({ (player) -> (Void) in
                 self.pong?.nextPlayer = player
                 self.pong?.saveInBackgroundWithBlock { success, error in
@@ -84,14 +96,13 @@ class EditPongViewController: UIViewController {
                     }
                 })
             } else {
+                self.pong?.nextPlayer = self.pong?.originalPlayer
                 self.pong?.finishedPong = true
                 self.pong?.saveInBackgroundWithBlock({ (success, error) -> Void in
                     print("saved completed pong")
                     self.navigationController?.popToRootViewControllerAnimated(true)
-                    
                 })
             }
-            
         }
     }
     
@@ -102,8 +113,8 @@ class EditPongViewController: UIViewController {
         // get a random number between 0 and count
         
         if let countQuery = Player.query() {
-            countQuery.whereKeyDoesNotExist("nextPlayer")
-            countQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
+//            countQuery.whereKeyDoesNotExist("nextPlayer")
+//            countQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
             countQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
             countQuery.countObjectsInBackgroundWithBlock({ (count, error) in
                 if error == nil {
@@ -111,8 +122,8 @@ class EditPongViewController: UIViewController {
                         self.savePong()
                     } else {
                         if let innerQuery = Player.query() {
-                            innerQuery.whereKeyDoesNotExist("nextPlayer")
-                            innerQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
+//                            innerQuery.whereKeyDoesNotExist("nextPlayer")
+//                            innerQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
                             innerQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
                             let randomIndex = arc4random_uniform(UInt32(count))
                             innerQuery.skip = Int(randomIndex)
@@ -163,4 +174,5 @@ class EditPongViewController: UIViewController {
     @IBAction func sendPongPressed(sender: AnyObject) {
         savePong()
     }
+   
 }

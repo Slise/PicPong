@@ -102,12 +102,10 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToIteration" {
-            guard let editPongVC = segue.destinationViewController as? PongIterationView else { return }
-            
-            if let pongToPass = sender as? Pong {
-                editPongVC.pong = pongToPass
+            if let pongIterationVC = segue.destinationViewController as? PongIterationView {
+                pongIterationVC.pong = pong
             }
         }
     }
-    
 }
+

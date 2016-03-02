@@ -12,7 +12,7 @@ import Parse
 class Pong : PFObject, PFSubclassing {
     
     @NSManaged var photos: [Photo]
-    @NSManaged var nextPlayer: Player? // is nil if pong is still in play, is originalPlayer if it's done.
+    @NSManaged var nextPlayer: Player? 
     @NSManaged var originalPlayer: Player
     @NSManaged var finishedPong: Bool
     

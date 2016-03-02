@@ -165,7 +165,7 @@
             </objects>
             <point key="canvasLocation" x="752" y="335"/>
         </scene>
-        <!--Edit Pong View Controller-->
+        <!--Tag it!-->
         <scene sceneID="DTs-Xn-Hl5">
             <objects>
                 <viewController id="ffY-eT-EVn" customClass="EditPongViewController" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
@@ -200,38 +200,41 @@
                                     <constraint firstItem="FG5-Vh-Z0h" firstAttribute="top" secondItem="uLM-Ld-4Yl" secondAttribute="top" id="zNt-jq-u7Q"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV8-TO-Tvf">
-                                <rect key="frame" x="534" y="511" width="36" height="30"/>
-                                <state key="normal" title="Clear"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV8-TO-Tvf">
+                                <rect key="frame" x="520" y="491" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Z7b-oN-ybh"/>
+                                    <constraint firstAttribute="height" constant="50" id="lSu-q7-Sho"/>
+                                </constraints>
+                                <state key="normal" image="clear_arrow"/>
                                 <connections>
                                     <action selector="clearButtonPressed:" destination="ffY-eT-EVn" eventType="touchUpInside" id="UBg-IE-BVQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3V-7F-bzA">
-                                <rect key="frame" x="492" y="89" width="53" height="30"/>
-                                <state key="normal" title="Pong it!"/>
-                                <connections>
-                                    <action selector="sendPongPressed:" destination="ffY-eT-EVn" eventType="touchUpInside" id="pzL-4l-S0X"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U3V-7F-bzA" firstAttribute="top" secondItem="Ayy-UW-3Fb" secondAttribute="bottom" constant="25" id="3Fh-sl-Vl0"/>
                             <constraint firstItem="uLM-Ld-4Yl" firstAttribute="leading" secondItem="4Te-PA-C03" secondAttribute="leading" id="6w1-Df-Djk"/>
                             <constraint firstItem="uLM-Ld-4Yl" firstAttribute="top" secondItem="Ayy-UW-3Fb" secondAttribute="bottom" id="7tn-bb-j51"/>
                             <constraint firstItem="NKy-2g-gCx" firstAttribute="top" secondItem="uLM-Ld-4Yl" secondAttribute="bottom" id="ISi-9c-3hh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tV8-TO-Tvf" secondAttribute="trailing" constant="10" id="Sxu-Ub-9LH"/>
                             <constraint firstAttribute="trailing" secondItem="uLM-Ld-4Yl" secondAttribute="trailing" id="ibc-aj-gvD"/>
                             <constraint firstItem="NKy-2g-gCx" firstAttribute="top" secondItem="tV8-TO-Tvf" secondAttribute="bottom" constant="10" id="xwQ-YH-Nlq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="U3V-7F-bzA" secondAttribute="trailing" constant="35" id="zXk-VJ-htz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Tag it!" id="DYE-NN-rPp">
+                        <barButtonItem key="rightBarButtonItem" title="pong it!" id="SXe-Bm-1Rm">
+                            <connections>
+                                <action selector="sendPongPressed:" destination="ffY-eT-EVn" id="Ka2-H3-fZc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="clearButton" destination="tV8-TO-Tvf" id="qG7-Bw-Rd1"/>
                         <outlet property="drawingView" destination="kJa-bP-2aF" id="fug-lt-AQI"/>
                         <outlet property="parentView" destination="uLM-Ld-4Yl" id="ple-QM-QPC"/>
                         <outlet property="pongImageView" destination="FG5-Vh-Z0h" id="sJZ-ca-NFx"/>
+                        <outlet property="pongItButton" destination="SXe-Bm-1Rm" id="Ab6-2a-Vpd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQz-ab-bYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,6 +559,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="clear_arrow" width="512" height="512"/>
         <image name="pic_pong" width="204" height="204"/>
     </resources>
 </document>
