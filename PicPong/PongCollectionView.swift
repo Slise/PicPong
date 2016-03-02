@@ -12,6 +12,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     
     //MARK: - Variables -
     
+    var pong = Pong()
     var donePongArray = [Pong]()
     var refreshControl: UIRefreshControl!
     
@@ -27,7 +28,6 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewWillAppear(animated: Bool) {
-        donePongs()
         addRefreshControl()
     }
     
@@ -54,19 +54,20 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     //MARK: - General Methods -
     
     func donePongs() {
-//        if let query = Pong.query() {
-//            query.whereKey("nextPlayer", equalTo: "originalPoster")
-//            query.includeKey("photos")
-//            query.findObjectsInBackgroundWithBlock{ objects, error in
-//                self.donePongArray = objects as! [Pong]
-//                self.pongCollectionView.reloadData()
-//                self.refreshControl.endRefreshing()
-//            }
-//        }
+        if let query = Pong.query() {
+            query.whereKey("finishedPong", equalTo: true)
+            query.includeKey("photos")
+            query.findObjectsInBackgroundWithBlock{ objects, error in
+                self.donePongArray = objects as! [Pong]
+                self.pongCollectionView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        }
     }
-    
+
     func myDonePongs() {
         if let query = Pong.query() {
+            query.whereKey("finishedPong", equalTo: true)
             query.whereKey("originalPlayer", equalTo: Player.currentUser()!)
             query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{ objects, error in

@@ -40,7 +40,7 @@ class LogInViewController: UIViewController {
                 if ((user) != nil) {
                     let alert = UIAlertController(title: "Success!", message: "Logged In", preferredStyle: .Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default) { action in
-                        // Do nothing
+                    self.performSegueWithIdentifier("segueToMainScreen", sender: nil)
                     }
                     alert.addAction(ok)
                     self.presentViewController(alert, animated: true) {}
@@ -50,12 +50,16 @@ class LogInViewController: UIViewController {
                     })
                     
                 } else {
-                    let alert = UIAlertController(title: "Success!", message: "Logged In", preferredStyle: .Alert)
-                    let ok = UIAlertAction(title: "OK", style: .Default) { action in
-                        // Do nothing
-                    }
-                    alert.addAction(ok)
-                    self.presentViewController(alert, animated: true) {}                }
+                    
+//                    let alert = UIAlertController(title: "Success!", message: "Logged In", preferredStyle: .Alert)
+//                    let ok = UIAlertAction(title: "OK", style: .Default) { action in
+//                        // Do nothing
+//                    }
+//                    alert.addAction(ok)
+//                    self.presentViewController(alert, animated: true) {}                }
+//            })
+//        }
+    }
             })
         }
     }

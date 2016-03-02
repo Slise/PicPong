@@ -41,8 +41,30 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     // MARK: - UIImagePickerControllerDelegate Methods
     
     func showImagePicker() {
-        presentViewController(imagePicker, animated: true, completion: nil)
+        let cameraVC = UIAlertController(title: "Pong Selection", message: "please select an image from camera or photo library", preferredStyle: .ActionSheet)
+        let cancel = UIAlertAction(title: "cancel", style: .Cancel, handler: nil)
+        cameraVC.addAction(cancel)
+        let cameraSource = UIAlertAction(title: "camera", style: .Default, handler: { (_: UIAlertAction) -> Void in
+            self.showImagePicker(UIImagePickerControllerSourceType.Camera)
+        })
+        cameraVC.addAction(cameraSource)
+        let photoGallery = UIAlertAction(title: "gallery", style: .Default, handler: { (_:UIAlertAction) -> Void in
+            self.showImagePicker(UIImagePickerControllerSourceType.PhotoLibrary)
+        })
+        cameraVC.addAction(photoGallery)
+        self.presentViewController(cameraVC, animated: true, completion:nil)
     }
+    
+    func showImagePicker(type: UIImagePickerControllerSourceType) {
+        let imageFromSource = UIImagePickerController()
+        imageFromSource.delegate = self
+        imageFromSource.allowsEditing = false
+        imageFromSource.sourceType = type
+        self.presentViewController(imageFromSource, animated: true, completion:nil)
+    }
+    
+//        presentViewController(imagePicker, animated: true, completion: nil)
+
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -97,8 +119,9 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     func loadData() {
         if let query = Pong.query() {
-            query.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
-            query.whereKeyDoesNotExist("nextPlayer")
+            if let currentPlayer = Player.currentUser() {
+                query.whereKey("nextPlayer", equalTo: currentPlayer)
+            }
             query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{(object, error) in
                 self.pongImageArray = object as! [Pong]
@@ -146,5 +169,9 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
                 editPongVC.image = imageToPass
             }
         }
+    }
+    
+    @IBAction func unwindToMainScreen(segue:UIStoryboardSegue) {
+        
     }
 }

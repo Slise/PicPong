@@ -23,14 +23,15 @@ class PongIterationCell: UICollectionViewCell {
     func configure() {
         let objectRef = pong
         pongIterationImage.image = nil
-        pong.photos.last!.pongImage.getDataInBackgroundWithBlock { data, error in
-            if error == nil {
-                if self.pong == objectRef {
-                    let image = UIImage(data: data!)
-                    self.pongIterationImage.image = image
+        if let lastObj = pong.photos.last {
+            lastObj.pongImage.getDataInBackgroundWithBlock { data, error in
+                if error == nil {
+                    if self.pong == objectRef {
+                        let image = UIImage(data: data!)
+                        self.pongIterationImage.image = image
+                    }
                 }
             }
         }
     }
-
 }

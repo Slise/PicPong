@@ -29,7 +29,6 @@ class Photo: PFObject, PFSubclassing {
     
     convenience init(image: PFFile, player newPlayer: Player) {
         self.init()
-        
         pongImage = image
         player = newPlayer
     }

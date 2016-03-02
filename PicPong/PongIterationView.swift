@@ -33,7 +33,7 @@ class PongIterationView: UIViewController {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("iterationCell", forIndexPath: indexPath) as! PongIterationCell
-        cell.pong = pongIterations[indexPath.row]
+       // cell.pong = pongIterations[indexPath.row]
         return cell
     }
     
@@ -43,7 +43,6 @@ class PongIterationView: UIViewController {
     
     func pongIterationCollection() {
         if let query = Pong.query() {
-            query.whereKey("originalPlayer", equalTo: Player.currentUser()!)
             query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{ objects, error in
                 self.pongIterations = objects as! [Pong]

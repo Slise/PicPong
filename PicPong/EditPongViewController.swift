@@ -28,7 +28,6 @@ class EditPongViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         displayImage()
     }
     
@@ -52,19 +51,81 @@ class EditPongViewController: UIViewController {
         let parsePhoto = Photo(image: parseImage, player: user)
         
         parseImage.saveInBackgroundWithBlock { success, error in
-            if self.pong == nil {
-                self.pong = Pong()
-                self.pong!.photos = [parsePhoto]
-                self.pong!.originalPlayer = user
-                self.pong!.nextPlayer = nil
+            
+            if let pong = self.pong {
+                pong.photos.append(parsePhoto)
+                if pong.photos.count > 7 {
+                    pong.finishedPong = true
+                    pong.nextPlayer = pong.originalPlayer
+                } else {
+                    pong.nextPlayer = nil
+                }
             } else {
-                self.pong!.photos.append(parsePhoto)
-                self.pong!.nextPlayer = self.pong!.photos.count > 7 ? self.pong!.originalPlayer : nil
+                let pong = Pong()
+                pong.photos = [parsePhoto]
+                pong.originalPlayer = user
+                self.pong = pong
             }
-            self.pong!.saveInBackgroundWithBlock { success, error in
-                print("saved pong")
-                self.navigationController?.popToRootViewControllerAnimated(true)
+            self.getRandomPlayer({ (player) -> (Void) in
+                self.pong?.nextPlayer = player
+                self.pong?.saveInBackgroundWithBlock { success, error in
+                    print("saved edited pong")
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
+            })
+            
+            if (self.pong?.nextPlayer == nil) {
+                self.getRandomPlayer({ (player) -> (Void) in
+                    self.pong?.nextPlayer = player
+                    self.pong?.saveInBackgroundWithBlock { success, error in
+                        print("saved pong")
+                        self.navigationController?.popToRootViewControllerAnimated(true)
+                    }
+                })
+            } else {
+                self.pong?.finishedPong = true
+                self.pong?.saveInBackgroundWithBlock({ (success, error) -> Void in
+                    print("saved completed pong")
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    
+                })
             }
+            
+        }
+    }
+    
+    func getRandomPlayer(completion: (Player)->(Void)) {
+        
+        // get random player, set them to the nextPlayer, save
+        // get count of players
+        // get a random number between 0 and count
+        
+        if let countQuery = Player.query() {
+            countQuery.whereKeyDoesNotExist("nextPlayer")
+            countQuery.whereKey("nextPlayer", notEqualTo: Player.currentUser()!)
+            countQuery.countObjectsInBackgroundWithBlock({ (count, error) in
+                if error == nil {
+                    if count == 0 {
+                        self.savePong()
+                    } else {
+                        if let innerQuery = Player.query() {
+                            let randomIndex = arc4random_uniform(UInt32(count))
+                            innerQuery.skip = Int(randomIndex)
+                            innerQuery.limit = 1
+                            innerQuery.findObjectsInBackgroundWithBlock { (objects, error) in
+                                if error == nil {
+                                    let randomIndex = arc4random_uniform(UInt32(objects!.count))
+                                    let randomPlayer = objects![Int(randomIndex)]
+                                    completion(randomPlayer as! Player)
+                                    randomPlayer.saveInBackgroundWithBlock { success, error in
+                                        print("random player picked")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            })
         }
     }
     
@@ -91,7 +152,7 @@ class EditPongViewController: UIViewController {
     // MARK: - Actions -
     
     @IBAction func clearButtonPressed(sender: AnyObject) {
-         drawingView.clear()
+        drawingView.clear()
     }
     
     @IBAction func sendPongPressed(sender: AnyObject) {
