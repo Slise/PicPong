@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class EditPongViewController: UIViewController, DrawingViewDelegate {
+class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorPickerDelegate, UIPopoverPresentationControllerDelegate {
     
     // MARK: - Variables -
     
@@ -165,6 +165,12 @@ class EditPongViewController: UIViewController, DrawingViewDelegate {
         return editedImage
     }
     
+    // this enables pop over on iphones
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        
+        return UIModalPresentationStyle.None
+    }
+    
     // MARK: - Actions -
     
     @IBAction func clearButtonPressed(sender: AnyObject) {
@@ -174,5 +180,30 @@ class EditPongViewController: UIViewController, DrawingViewDelegate {
     @IBAction func sendPongPressed(sender: AnyObject) {
         savePong()
     }
-   
+    
+    //MARK: - Segues -
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+            // adding as delegate for color selection
+            let colorPickerVC = segue.destinationViewController as! SwiftColorPickerViewController
+            colorPickerVC.delegate = self
+            
+            if let popPresentationController = colorPickerVC.popoverPresentationController {
+                popPresentationController.delegate = self
+            }
+            // Get the new view controller using segue.destinationViewController.
+            // Pass the selected object to the new view controller.
+        
+    }
+    
+    // MARK: Color Picker Delegate
+    
+    func colorSelectionChanged(selectedColor color: UIColor) {
+        
+        drawingView.currentColour = color
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
 }

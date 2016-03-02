@@ -185,7 +185,39 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJa-bP-2aF" customClass="DrawingView" customModule="PicPong" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2J6-L1-nVb">
+                                                <rect key="frame" x="8" y="429" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="3DX-c7-fPN"/>
+                                                    <constraint firstAttribute="width" constant="50" id="M10-Zc-vgh"/>
+                                                </constraints>
+                                                <state key="normal" title="Color Picker" image="color_wheel"/>
+                                                <connections>
+                                                    <segue destination="Ocq-rP-Ps8" kind="popoverPresentation" popoverAnchorView="2J6-L1-nVb" id="hY3-Gc-Seh">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV8-TO-Tvf">
+                                                <rect key="frame" x="542" y="429" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="Z7b-oN-ybh"/>
+                                                    <constraint firstAttribute="height" constant="50" id="lSu-q7-Sho"/>
+                                                </constraints>
+                                                <state key="normal" image="clear_arrow"/>
+                                                <connections>
+                                                    <action selector="clearButtonPressed:" destination="ffY-eT-EVn" eventType="touchUpInside" id="UBg-IE-BVQ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="tV8-TO-Tvf" secondAttribute="bottom" constant="8" id="4pq-ZN-USh"/>
+                                            <constraint firstAttribute="trailing" secondItem="tV8-TO-Tvf" secondAttribute="trailing" constant="8" id="YcY-aY-LwE"/>
+                                            <constraint firstAttribute="bottom" secondItem="2J6-L1-nVb" secondAttribute="bottom" constant="8" id="YmG-KJ-sAf"/>
+                                            <constraint firstItem="2J6-L1-nVb" firstAttribute="leading" secondItem="kJa-bP-2aF" secondAttribute="leading" constant="8" id="bZf-rH-Y6z"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -200,26 +232,13 @@
                                     <constraint firstItem="FG5-Vh-Z0h" firstAttribute="top" secondItem="uLM-Ld-4Yl" secondAttribute="top" id="zNt-jq-u7Q"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV8-TO-Tvf">
-                                <rect key="frame" x="520" y="491" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Z7b-oN-ybh"/>
-                                    <constraint firstAttribute="height" constant="50" id="lSu-q7-Sho"/>
-                                </constraints>
-                                <state key="normal" image="clear_arrow"/>
-                                <connections>
-                                    <action selector="clearButtonPressed:" destination="ffY-eT-EVn" eventType="touchUpInside" id="UBg-IE-BVQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uLM-Ld-4Yl" firstAttribute="leading" secondItem="4Te-PA-C03" secondAttribute="leading" id="6w1-Df-Djk"/>
                             <constraint firstItem="uLM-Ld-4Yl" firstAttribute="top" secondItem="Ayy-UW-3Fb" secondAttribute="bottom" id="7tn-bb-j51"/>
                             <constraint firstItem="NKy-2g-gCx" firstAttribute="top" secondItem="uLM-Ld-4Yl" secondAttribute="bottom" id="ISi-9c-3hh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tV8-TO-Tvf" secondAttribute="trailing" constant="10" id="Sxu-Ub-9LH"/>
                             <constraint firstAttribute="trailing" secondItem="uLM-Ld-4Yl" secondAttribute="trailing" id="ibc-aj-gvD"/>
-                            <constraint firstItem="NKy-2g-gCx" firstAttribute="top" secondItem="tV8-TO-Tvf" secondAttribute="bottom" constant="10" id="xwQ-YH-Nlq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tag it!" id="DYE-NN-rPp">
@@ -240,6 +259,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQz-ab-bYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1428" y="-326"/>
+        </scene>
+        <!--Swift Color Picker View Controller-->
+        <scene sceneID="xN1-a2-NS1">
+            <objects>
+                <viewController id="Ocq-rP-Ps8" customClass="SwiftColorPickerViewController" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BjL-LX-b01"/>
+                        <viewControllerLayoutGuide type="bottom" id="LbI-w7-HhL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TJn-hA-mDv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jnC-hb-rVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2154" y="-326"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="8oC-Pz-IDR">
@@ -560,6 +597,7 @@
     </scenes>
     <resources>
         <image name="clear_arrow" width="512" height="512"/>
+        <image name="color_wheel" width="730" height="730"/>
         <image name="pic_pong" width="204" height="204"/>
     </resources>
 </document>

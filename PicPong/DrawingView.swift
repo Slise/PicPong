@@ -18,14 +18,23 @@ class DrawingView: UIView {
     
     weak var delegate: DrawingViewDelegate?
     var drawingPath = UIBezierPath()
+    var currentColour = UIColor.blackColor()
+    
+    var drawingPaths = [(UIBezierPath, UIColor)]()
     
     override func drawRect(rect: CGRect) {
-        UIColor.orangeColor().setStroke()
+        
+        for (path, color) in drawingPaths {
+            color.setStroke()
+            path.stroke()
+        }
+        currentColour.setStroke()
         drawingPath.stroke()
     }
     
     func clear() {
-        drawingPath.removeAllPoints()
+        drawingPaths.removeAll()
+        
         setNeedsDisplay()
         delegate?.clearEdit()
     }
@@ -50,5 +59,8 @@ class DrawingView: UIView {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        drawingPaths.append((drawingPath.copy() as! UIBezierPath, currentColour))
+        drawingPath.removeAllPoints()
+        setNeedsDisplay()
     }
 }
