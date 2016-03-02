@@ -68,10 +68,6 @@ class EditPongViewController: UIViewController {
                 pong.nextPlayer = nil
             }
             self.getRandomPlayer({ (player) -> (Void) in
-                let currentUser = Player.currentUser()
-                if currentUser?.objectId == player.objectId {
-                    assertionFailure("id failure")
-                }
                 self.pong?.nextPlayer = player
                 self.pong?.saveInBackgroundWithBlock { success, error in
                     print("get next player")
@@ -81,10 +77,6 @@ class EditPongViewController: UIViewController {
             
             if (self.pong?.nextPlayer == nil) {
                 self.getRandomPlayer({ (player) -> (Void) in
-                    let currentUser = Player.currentUser()
-                    if currentUser?.objectId == player.objectId {
-                        assertionFailure("id failure")
-                    }
                     self.pong?.nextPlayer = player
                     self.pong?.saveInBackgroundWithBlock { success, error in
                         print("no player")
