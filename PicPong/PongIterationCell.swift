@@ -10,6 +10,9 @@ import UIKit
 
 class PongIterationCell: UICollectionViewCell {
     
+    @IBOutlet weak var postImageView: UIImageView!
+    
+    
     //MARK: - Variables -
     
     var pong: Pong! {
@@ -22,17 +25,16 @@ class PongIterationCell: UICollectionViewCell {
             configure()
         }
     }
-    @IBOutlet weak var pongIterationImage: UIImageView!
     
     func configure() {
         let objectRef = pong
-        pongIterationImage.image = nil
+        postImageView.image = nil
          let lastObj = pong.photos[pongNum.integerValue] //{
             lastObj.pongImage.getDataInBackgroundWithBlock { data, error in
                 if error == nil {
                     if self.pong == objectRef {
                         let image = UIImage(data: data!)
-                        self.pongIterationImage.image = image
+                        self.postImageView.image = image
                     }
               //  }
             }

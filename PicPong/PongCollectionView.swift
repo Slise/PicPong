@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     
     //MARK: - Variables -
     
@@ -23,11 +23,10 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addRefreshControl()
         donePongs()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         addRefreshControl()
     }
     
