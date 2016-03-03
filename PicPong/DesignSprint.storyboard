@@ -737,7 +737,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mic-6b-JUs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="play_pong" id="fcg-1M-8aH">
-                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-4"/>
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OKn-CT-EuU">

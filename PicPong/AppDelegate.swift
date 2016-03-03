@@ -29,15 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 45.0/255.0, green: 47.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-//        let tabBarController = window!.rootViewController as! UITabBarController
-//        let tabBar = tabBarController.tabBar as UITabBar
-//        
-//        let tabBarItem1 = tabBar.items![0] as UITabBarItem
-//        let tabBarItem2 = tabBar.items![1] as UITabBarItem
-//        
-//        tabBarItem1.selectedImage = UIImage(named: "pong512")
-//        tabBarItem2.selectedImage = UIImage(named: "pong515")
-//        
         return true
     }
 

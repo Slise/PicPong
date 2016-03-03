@@ -41,7 +41,7 @@ class DrawingView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        drawingPath.lineWidth = 2.0
+        drawingPath.lineWidth = 4.0
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

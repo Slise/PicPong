@@ -33,6 +33,7 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
         displayImage()
         pongItButton.enabled = false
         drawingView.delegate = self
+        tabBarIsVisible()
     }
     
     override func viewWillAppear(animated: Bool) {
