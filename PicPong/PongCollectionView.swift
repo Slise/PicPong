@@ -80,7 +80,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
 
     func addRefreshControl() {
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("loadData"), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: Selector("donePongs"), forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         pongCollectionView.addSubview(refreshControl)
     }

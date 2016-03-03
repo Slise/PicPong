@@ -25,15 +25,11 @@ class EmojiKeyboardView: UIView, ISEmojiViewDelegate {
 //            NSRange lastRange = [self.textView.text rangeOfComposedCharacterSequenceAtIndex:self.textView.text.length-1];
 //            self.textView.text = [self.textView.text substringToIndex:lastRange.location];
 //        }
-//        if emojiKeyboardField.text?.length > 0 {
-//            let lastRange = NSRange()
-//            
+
         }
-    
     
     func emojiView(emojiView: ISEmojiView!, didSelectEmoji emoji: String!) {
         //self.textView.text = [self.textView.text stringByAppendingString:emoji];
-       // emojiKeyboardField.text?.stringByAppendingString(emoji)
     }
     
     
