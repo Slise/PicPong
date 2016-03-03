@@ -52,6 +52,14 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             self.showImagePicker(UIImagePickerControllerSourceType.PhotoLibrary)
         })
         cameraVC.addAction(photoGallery)
+        
+        if let presenter = cameraVC.popoverPresentationController {
+            let ip = NSIndexPath(forRow: 0, inSection: 0)
+            let cell = collectionView(receivedPongCollectionView, cellForItemAtIndexPath: ip)
+            
+            presenter.sourceView = cell;
+            presenter.sourceRect = cell.frame;
+        }
         self.presentViewController(cameraVC, animated: true, completion:nil)
     }
     
@@ -85,7 +93,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
 //MARK: UICollectionViewControllerDelegate Methods
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(110, 110)
+        return CGSizeMake(150, 150)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

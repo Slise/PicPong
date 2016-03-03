@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId(Constant.applicationID.rawValue,
             clientKey: Constant.clientID.rawValue)
         
+        UINavigationBar.appearance().barTintColor = UIColor(red: 45.0/255.0, green: 47.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
 //        let tabBarController = window!.rootViewController as! UITabBarController
 //        let tabBar = tabBarController.tabBar as UITabBar
 //        

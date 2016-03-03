@@ -24,6 +24,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         donePongs()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -33,7 +34,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     //MARK: - UICollectionViewControllerDelegate Methods -
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(110, 110)
+        return CGSizeMake(150, 150)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

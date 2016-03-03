@@ -70,12 +70,18 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
     
     //MARK: - Actions -
     
-    @IBAction func shareButtonPressed(sender: AnyObject) {
+    @IBAction func shareButtonPressed(sender: UIBarButtonItem) {
         
         if let indexPath = iterationCollectionView.indexPathsForSelectedItems()?.first {
             let cell = iterationCollectionView.cellForItemAtIndexPath(indexPath) as? PongIterationCell
             if let image = cell?.postImageView.image {
+                
                 let shareVc = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                
+                if let presenter = shareVc.popoverPresentationController {
+                    presenter.barButtonItem = sender
+                }
+                
                 self.presentViewController(shareVc, animated: true, completion: nil)
             }
 
