@@ -24,6 +24,7 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
     @IBOutlet weak var pongImageView: UIImageView!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var pongItButton: UIBarButtonItem!
+    @IBOutlet weak var emojiButton: UIButton!
     
     // MARK: - View Controller Life Cycle
     
@@ -113,8 +114,6 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
         // get a random number between 0 and count
         
         if let countQuery = Player.query() {
-//            countQuery.whereKeyDoesNotExist("nextPlayer")
-//            countQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
             countQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
             countQuery.countObjectsInBackgroundWithBlock({ (count, error) in
                 if error == nil {
@@ -122,8 +121,6 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
                         self.savePong()
                     } else {
                         if let innerQuery = Player.query() {
-//                            innerQuery.whereKeyDoesNotExist("nextPlayer")
-//                            innerQuery.whereKey("originalPlayer", notEqualTo: Player.currentUser()!)
                             innerQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
                             let randomIndex = arc4random_uniform(UInt32(count))
                             innerQuery.skip = Int(randomIndex)
@@ -181,6 +178,14 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
         savePong()
     }
     
+    
+    @IBAction func addEmojiButtonPressed(sender: AnyObject) {
+        
+        let nibView = NSBundle.mainBundle().loadNibNamed("EmojiKeyboard", owner: self, options: nil)[0] as! UIView
+        nibView.frame = CGRectMake(50, 50, 100, 100)
+        self.view.addSubview(nibView)
+    }
+    
     //MARK: - Segues -
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -195,7 +200,6 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
             }
             // Get the new view controller using segue.destinationViewController.
             // Pass the selected object to the new view controller.
-        
     }
     
     // MARK: Color Picker Delegate

@@ -29,6 +29,9 @@
 		934575261C7D27A700681FD9 /* DesignSprint.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934575251C7D27A700681FD9 /* DesignSprint.storyboard */; };
 		935B68891C7FFF95002D3A26 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B68881C7FFF95002D3A26 /* LogInViewController.swift */; };
 		935B688B1C879A19002D3A26 /* SwiftColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B688A1C879A19002D3A26 /* SwiftColorPickerViewController.swift */; };
+		935B688D1C87B87A002D3A26 /* EmojiKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 935B688C1C87B87A002D3A26 /* EmojiKeyboard.xib */; };
+		935B688F1C87B923002D3A26 /* EmojiKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935B688E1C87B923002D3A26 /* EmojiKeyboardView.swift */; };
+		935B68911C87D138002D3A26 /* ISEmojiList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 935B68901C87D138002D3A26 /* ISEmojiList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		934575251C7D27A700681FD9 /* DesignSprint.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DesignSprint.storyboard; sourceTree = "<group>"; };
 		935B68881C7FFF95002D3A26 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		935B688A1C879A19002D3A26 /* SwiftColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColorPickerViewController.swift; sourceTree = "<group>"; };
+		935B688C1C87B87A002D3A26 /* EmojiKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmojiKeyboard.xib; sourceTree = "<group>"; };
+		935B688E1C87B923002D3A26 /* EmojiKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiKeyboardView.swift; sourceTree = "<group>"; };
+		935B68901C87D138002D3A26 /* ISEmojiList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ISEmojiList.plist; sourceTree = "<group>"; };
 		A8888C5378C6CF45FAB033CA /* Pods-PicPong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicPong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicPong/Pods-PicPong.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +152,7 @@
 				9345751A1C7BBCF300681FD9 /* UI */,
 				934575171C7BB7F300681FD9 /* Assets */,
 				934574E71C7A7A9200681FD9 /* Info.plist */,
+				935B68901C87D138002D3A26 /* ISEmojiList.plist */,
 			);
 			path = PicPong;
 			sourceTree = "<group>";
@@ -175,6 +182,7 @@
 				930E14331C7D3B7700732CA0 /* DoneCell.swift */,
 				930E14311C7D3AF400732CA0 /* PongIterationCell.swift */,
 				930E14351C7E709D00732CA0 /* DrawingView.swift */,
+				935B688E1C87B923002D3A26 /* EmojiKeyboardView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -203,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				934575251C7D27A700681FD9 /* DesignSprint.storyboard */,
+				935B688C1C87B87A002D3A26 /* EmojiKeyboard.xib */,
 				934574E41C7A7A9200681FD9 /* LaunchScreen.storyboard */,
 			);
 			name = UI;
@@ -343,7 +352,9 @@
 			files = (
 				934575261C7D27A700681FD9 /* DesignSprint.storyboard in Resources */,
 				934574E61C7A7A9200681FD9 /* LaunchScreen.storyboard in Resources */,
+				935B68911C87D138002D3A26 /* ISEmojiList.plist in Resources */,
 				934574E31C7A7A9200681FD9 /* Assets.xcassets in Resources */,
+				935B688D1C87B87A002D3A26 /* EmojiKeyboard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +429,7 @@
 			files = (
 				930E143C1C7F942500732CA0 /* Photo.swift in Sources */,
 				930E142E1C7D2E2800732CA0 /* EditPongViewController.swift in Sources */,
+				935B688F1C87B923002D3A26 /* EmojiKeyboardView.swift in Sources */,
 				934575201C7BFCF600681FD9 /* Constant.swift in Sources */,
 				930E14321C7D3AF400732CA0 /* PongIterationCell.swift in Sources */,
 				934575121C7BAD4500681FD9 /* Pong.swift in Sources */,

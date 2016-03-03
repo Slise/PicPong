@@ -48,7 +48,8 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
             }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        pong = donePongArray[indexPath.row]
+        performSegueWithIdentifier("segueToIteration", sender: self)
             }
     
     //MARK: - General Methods -

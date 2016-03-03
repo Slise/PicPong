@@ -11,6 +11,7 @@ import UIKit
 class PongIterationView: UIViewController {
     
     var pong: Pong?
+   @NSManaged var pongID: String
     var pongIterations = [Pong]()
     
     //MARK: - Outlets -
@@ -21,34 +22,30 @@ class PongIterationView: UIViewController {
 
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.iterationCollectionView.reloadData()
+    }
+    
     //MARK: - UICollectionViewControllerDelegate Methods -
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(200, 200)
+        return CGSizeMake(300, 300)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pongIterations.count
+        return pong!.photos.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("iterationCell", forIndexPath: indexPath) as! PongIterationCell
-       // cell.pong = pongIterations[indexPath.row]
+        cell.pong = pong
+        cell.pongNum = indexPath.row
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
     }
-    
-    func pongIterationCollection() {
-        if let query = Pong.query() {
-            query.includeKey("photos")
-            query.findObjectsInBackgroundWithBlock{ objects, error in
-                self.pongIterations = objects as! [Pong]
-                self.iterationCollectionView.reloadData()
-            }
-        }
-    }
-
+  
 }

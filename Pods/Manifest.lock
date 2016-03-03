@@ -1,5 +1,6 @@
 PODS:
   - Bolts/Tasks (1.6.0)
+  - ISEmojiView (0.0.1)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
   - ParseUI (1.2.0):
@@ -7,11 +8,13 @@ PODS:
     - Parse (~> 1.9)
 
 DEPENDENCIES:
+  - ISEmojiView
   - Parse
   - ParseUI
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
+  ISEmojiView: b281239356e53bb807ecaa19155adfab43f6b263
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
 

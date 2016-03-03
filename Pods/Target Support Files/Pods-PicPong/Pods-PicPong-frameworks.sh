@@ -85,11 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PicPong/Bolts.framework"
+  install_framework "Pods-PicPong/ISEmojiView.framework"
   install_framework "Pods-PicPong/Parse.framework"
   install_framework "Pods-PicPong/ParseUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PicPong/Bolts.framework"
+  install_framework "Pods-PicPong/ISEmojiView.framework"
   install_framework "Pods-PicPong/Parse.framework"
   install_framework "Pods-PicPong/ParseUI.framework"
 fi

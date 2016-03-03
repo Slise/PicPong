@@ -9,7 +9,7 @@ target 'PicPong' do
 
 pod 'Parse'
 pod 'ParseUI'
-
+pod 'ISEmojiView'
 
 end
 

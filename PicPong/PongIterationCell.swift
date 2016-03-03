@@ -17,20 +17,24 @@ class PongIterationCell: UICollectionViewCell {
             configure()
         }
     }
-
+    var  pongNum:NSNumber = 0.0{
+        didSet {
+            configure()
+        }
+    }
     @IBOutlet weak var pongIterationImage: UIImageView!
     
     func configure() {
         let objectRef = pong
         pongIterationImage.image = nil
-        if let lastObj = pong.photos.last {
+         let lastObj = pong.photos[pongNum.integerValue] //{
             lastObj.pongImage.getDataInBackgroundWithBlock { data, error in
                 if error == nil {
                     if self.pong == objectRef {
                         let image = UIImage(data: data!)
                         self.pongIterationImage.image = image
                     }
-                }
+              //  }
             }
         }
     }
