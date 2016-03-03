@@ -29,6 +29,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidAppear(animated: Bool) {
         addRefreshControl()
+        tabBarIsVisible()
     }
     
     //MARK: - UICollectionViewControllerDelegate Methods -
@@ -84,6 +85,10 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
         refreshControl.addTarget(self, action: Selector("donePongs"), forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         pongCollectionView.addSubview(refreshControl)
+    }
+    
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
     }
     
     //MARK: - Actions -

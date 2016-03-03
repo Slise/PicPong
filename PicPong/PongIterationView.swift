@@ -19,12 +19,17 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        tabBarIsVisible()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.iterationCollectionView.reloadData()
+        iterationCollectionView.reloadData()
     }
     
     //MARK: - UICollectionViewControllerDelegate Methods -
@@ -41,7 +46,6 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("iterationCell", forIndexPath: indexPath) as! PongIterationCell
         
         cell.postImageView.layer.borderWidth = 0
-        cell.postImageView.image = nil
         
         cell.pong = pong
         cell.pongNum = indexPath.row
@@ -84,11 +88,10 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
                 
                 self.presentViewController(shareVc, animated: true, completion: nil)
             }
-
         }
-
-        
-        
-        
+    }
+    
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
     }
 }

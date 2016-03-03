@@ -40,7 +40,7 @@ class LogInViewController: UIViewController {
                 if ((user) != nil) {
                     let alert = UIAlertController(title: "Success!", message: "Logged In", preferredStyle: .Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default) { action in
-                    self.performSegueWithIdentifier("segueToMainScreen", sender: nil)
+                        self.performSegueWithIdentifier("segueToMainScreen", sender: nil)
                     }
                     alert.addAction(ok)
                     self.presentViewController(alert, animated: true) {}
@@ -51,17 +51,43 @@ class LogInViewController: UIViewController {
                     
                 } else {
                     
-//                    let alert = UIAlertController(title: "Success!", message: "Logged In", preferredStyle: .Alert)
-//                    let ok = UIAlertAction(title: "OK", style: .Default) { action in
-//                        // Do nothing
-//                    }
-//                    alert.addAction(ok)
-//                    self.presentViewController(alert, animated: true) {}                }
-//            })
-//        }
-    }
+                    
+                }
             })
         }
+    }
+    
+    override func viewDidLoad() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        setTabBarVisible(false, animated: true)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        tabBarIsVisible()
+    }
+    
+    func setTabBarVisible(visible: Bool, animated: Bool) {
+        // hide tab bar
+        let frame = self.tabBarController?.tabBar.frame
+        let height = frame?.size.height
+        let offsetY = (visible ? -height! : height)
+        let duration:NSTimeInterval = (animated ? 0.0 : 0.0)
+        if frame != nil {
+            UIView.animateWithDuration(duration) {
+                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY!)
+                self.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height + offsetY!)
+                self.view.setNeedsDisplay()
+                self.view.layoutIfNeeded()
+                return
+            }
+        }
+    }
+    
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
     }
     
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {

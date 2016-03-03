@@ -35,6 +35,10 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
         drawingView.delegate = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        tabBarIsVisible()
+    }
+    
     // MARK: General Methods
     
     func imageEdited() {
@@ -210,4 +214,7 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
         dismissViewControllerAnimated(true, completion: nil)
     }
 
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    }
 }

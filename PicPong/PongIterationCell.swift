@@ -36,7 +36,6 @@ class PongIterationCell: UICollectionViewCell {
                         let image = UIImage(data: data!)
                         self.postImageView.image = image
                     }
-              //  }
             }
         }
     }

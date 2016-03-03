@@ -34,7 +34,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        
+        tabBarIsVisible()
         loadData()
     }
     
@@ -71,9 +71,10 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         self.presentViewController(imageFromSource, animated: true, completion:nil)
     }
     
-//        presentViewController(imagePicker, animated: true, completion: nil)
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    }
 
-    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         dismissViewControllerAnimated(true, completion: nil)
     }
