@@ -15,6 +15,21 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    override func viewDidLoad() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+    }
+    
+    //MARK: - General Methods -
+    
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    
+    //ACTIONS
+    
     @IBAction func loginAction(sender: AnyObject) {
         let username = self.usernameField.text
         let password = self.passwordField.text
@@ -52,31 +67,6 @@ class LogInViewController: UIViewController {
                 }
             })
         }
-    }
-    
-    override func viewDidLoad() {
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        hideTabBar()
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        showTabBar()
-    }
-    
-    func hideTabBar() {
-        self.tabBarController?.tabBar.hidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.hidden = false
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        view.endEditing(true)
     }
     
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {

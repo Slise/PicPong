@@ -25,23 +25,30 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        donePongs()
-        
+        addRefreshControl()
+        loadData()
     }
     
     override func viewWillAppear(animated: Bool) {
-        addRefreshControl()
         navigationController?.setNavigationBarHidden(false, animated: false)
+        loadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        showTabBar()
+    
+    func loadData() {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            donePongs()
+        } else {
+            myDonePongs()
+        }
     }
     
     //MARK: - UICollectionViewControllerDelegate Methods -
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(150, 150)
+        
+        let width = self.view.frame.width/2 - 10
+        return CGSizeMake(width, width)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -92,15 +99,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
         refreshControl.tintColor = UIColor.whiteColor()
         pongCollectionView.addSubview(refreshControl)
     }
-    
-    func hideTabBar() {
-        self.tabBarController?.tabBar.hidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.hidden = false
-    }
-    
+
     //MARK: - Actions -
     
     @IBAction func donePongFilter(sender: AnyObject) {

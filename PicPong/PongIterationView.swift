@@ -24,12 +24,10 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
-        showTabBar()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        iterationCollectionView.reloadData()
     }
     
     //MARK: - UICollectionViewControllerDelegate Methods -
@@ -48,6 +46,7 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
         cell.postImageView.layer.borderWidth = 0
         cell.pong = pong
         cell.pongNum = indexPath.row
+        
         return cell
     }
     
@@ -69,18 +68,7 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
         print("selectedItem is \(indexPath.item)")
         
     }
-    
-    //Mark: - General Methods -
-    
-    func hideTabBar() {
-        self.tabBarController?.tabBar.hidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.hidden = false
-    }
-    
-    
+
     //MARK: - Actions -
     
     @IBAction func shareButtonPressed(sender: UIBarButtonItem) {

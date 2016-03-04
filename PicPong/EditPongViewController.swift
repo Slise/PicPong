@@ -38,7 +38,6 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
     
     override func viewWillAppear(animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: false)
-        showTabBar()
     }
     
     // MARK: General Methods
@@ -113,47 +112,50 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
         }
     }
     
-    func hideTabBar() {
-        self.tabBarController?.tabBar.hidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.hidden = false
-    }
-    
     func getRandomPlayer(completion: (Player)->(Void)) {
         
         // get random player, set them to the nextPlayer, save
         // get count of players
         // get a random number between 0 and count
         
-        if let countQuery = Player.query() {
-            countQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
-            countQuery.countObjectsInBackgroundWithBlock({ (count, error) in
-                if error == nil {
-                    if count == 0 {
-                        self.savePong()
-                    } else {
-                        if let innerQuery = Player.query() {
-                            innerQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
-                            let randomIndex = arc4random_uniform(UInt32(count))
-                            innerQuery.skip = Int(randomIndex)
-                            innerQuery.limit = 1
-                            innerQuery.findObjectsInBackgroundWithBlock { (objects, error) in
-                                if error == nil {
-                                    let randomIndex = arc4random_uniform(UInt32(objects!.count))
-                                    let randomPlayer = objects![Int(randomIndex)]
-                                    completion(randomPlayer as! Player)
-                                    randomPlayer.saveInBackgroundWithBlock { success, error in
-                                        print("random player picked")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            })
+        
+        guard let countQuery = Player.query() else {
+            return
         }
+        
+        
+        countQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
+        countQuery.countObjectsInBackgroundWithBlock({ (count, countError) in
+            
+            
+            if countError != nil {
+                print("error counting pongs \(countError)")
+                return
+            }
+            
+            if count == 0 {
+                self.savePong()
+            } else if let innerQuery = Player.query() {
+                
+                innerQuery.whereKey("objectId", notEqualTo: (Player.currentUser()?.objectId)!)
+                
+                let randomIndex = arc4random_uniform(UInt32(count))
+                innerQuery.skip = Int(randomIndex)
+                innerQuery.limit = 1
+                
+                innerQuery.findObjectsInBackgroundWithBlock { (objects, randomUserError) in
+                    
+                    if randomUserError != nil {
+                        return
+                    }
+                    
+                    let randomIndex = arc4random_uniform(UInt32(objects!.count))
+                    let randomPlayer = objects![Int(randomIndex)]
+                    
+                    completion(randomPlayer as! Player)
+                }
+            }
+        })
     }
     
     func getEditedImageData() -> NSData {
@@ -162,7 +164,7 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
     
     func getImageData(image: UIImage) -> NSData {
         var data = UIImagePNGRepresentation(image)!
-        while data.length > 5000000 {
+        while data.length > 6000000 {
             data = UIImageJPEGRepresentation(image, 0.5)!
         }
         return data
@@ -219,7 +221,6 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
     // MARK: Color Picker Delegate
     
     func colorSelectionChanged(selectedColor color: UIColor) {
-        
         drawingView.currentColour = color
         dismissViewControllerAnimated(true, completion: nil)
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Gr-Lb-mSp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UWD-vV-mfH">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="1428" y="335"/>
         </scene>
-        <!--Pong Collection View-->
+        <!--Item-->
         <scene sceneID="Ce3-Ah-zV0">
             <objects>
-                <viewController id="VCc-yd-Gt0" customClass="PongCollectionView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="VCc-yd-Gt0" customClass="PongCollectionView" customModule="PicPong" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="or8-0H-rBg"/>
                         <viewControllerLayoutGuide type="bottom" id="aZb-qC-67F"/>
@@ -97,7 +97,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hps-H8-tej">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wnh-5H-sHK">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="wnh-5H-sHK">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -105,7 +105,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="finishedPongCell" id="Hko-pT-6sL" customClass="DoneCell" customModule="PicPong" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="175" height="175"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
@@ -144,6 +144,7 @@
                             <constraint firstItem="aZb-qC-67F" firstAttribute="top" secondItem="Hps-H8-tej" secondAttribute="bottom" id="l9v-Dm-mNE"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="o3f-aX-gSN"/>
                     <navigationItem key="navigationItem" id="1Lz-1V-xlB">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="hMS-GB-1LB">
@@ -495,6 +496,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="lyk-fy-XOG"/>
                     <navigationItem key="navigationItem" title="Pic Pong" id="8Bo-XJ-Lrn"/>
                     <connections>
                         <outlet property="receivedPongCollectionView" destination="79r-qn-dtL" id="e0t-bC-xap"/>
@@ -509,6 +511,7 @@
         <scene sceneID="SGm-uh-d7M">
             <objects>
                 <tabBarController id="4Gr-Lb-mSp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wkw-Pl-UNG"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qnM-0z-Yac">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -516,13 +519,13 @@
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Mic-6b-JUs" kind="relationship" relationship="viewControllers" id="09b-c1-gLc"/>
-                        <segue destination="857-Ik-XPn" kind="relationship" relationship="viewControllers" id="TH2-PW-Msy"/>
+                        <segue destination="Tar-TQ-2WV" kind="relationship" relationship="viewControllers" id="DaJ-8g-ZPg"/>
+                        <segue destination="VCc-yd-Gt0" kind="relationship" relationship="viewControllers" id="aJe-I3-7AV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNq-Si-rH3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-748" y="5"/>
+            <point key="canvasLocation" x="-168" y="-91"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="EKT-3x-smw">
@@ -598,8 +601,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="86" id="6Zj-ga-UVc"/>
                                             <constraint firstAttribute="width" constant="43" id="Zot-KY-w4N"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="43" id="f2U-XY-4pC"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="86" id="odE-fr-hAy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="67"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -610,20 +611,16 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="87" id="5DA-bk-Cdn"/>
                                             <constraint firstAttribute="width" constant="107" id="XZx-ks-9FY"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="87" id="bxZ-IP-nU9"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="dyo-9m-FDA"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZq-HP-S6d">
-                                        <rect key="frame" x="155" y="29" width="53" height="86"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyT-gO-CiQ">
+                                        <rect key="frame" x="333" y="29" width="81" height="86"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="86" id="2SR-4D-oPy"/>
-                                            <constraint firstAttribute="width" constant="53" id="Whc-MY-eUm"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53" id="gPy-K5-Epn"/>
-                                            <constraint firstAttribute="height" constant="86" id="tju-5Y-YFq"/>
+                                            <constraint firstAttribute="width" constant="80.5" id="K3D-F7-VXm"/>
+                                            <constraint firstAttribute="height" constant="86" id="WO2-bw-WwU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="67"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p_login" translatesAutoresizingMaskIntoConstraints="NO" id="9kJ-v1-t1i">
@@ -645,16 +642,14 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyT-gO-CiQ">
-                                        <rect key="frame" x="333" y="29" width="81" height="86"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZq-HP-S6d">
+                                        <rect key="frame" x="155" y="29" width="53" height="86"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="BAb-Hi-vCM"/>
-                                            <constraint firstAttribute="width" constant="80.5" id="K3D-F7-VXm"/>
-                                            <constraint firstAttribute="height" constant="86" id="WO2-bw-WwU"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="86" id="cMy-EQ-xjc"/>
+                                            <constraint firstAttribute="width" constant="53" id="Whc-MY-eUm"/>
+                                            <constraint firstAttribute="height" constant="86" id="tju-5Y-YFq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="67"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -733,52 +728,25 @@
             <point key="canvasLocation" x="752" y="-1036"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Gg9-8t-QQ6">
+        <scene sceneID="fwt-m2-zFt">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mic-6b-JUs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="play_pong" id="fcg-1M-8aH">
-                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-6"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OKn-CT-EuU">
+                <navigationController id="UWD-vV-mfH" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ljT-Bn-5gs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Tar-TQ-2WV" kind="relationship" relationship="rootViewController" id="GcV-Iv-ojo"/>
+                        <segue destination="4Gr-Lb-mSp" kind="relationship" relationship="rootViewController" id="FMt-MH-W4T"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KOb-pZ-F0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jB2-8R-iuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72" y="-326"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2nB-XG-9RP">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="857-Ik-XPn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="done2" id="nZM-lf-htV">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-5"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l47-uQ-E1n">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="VCc-yd-Gt0" kind="relationship" relationship="rootViewController" id="dUb-wi-y2K"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sZ3-yQ-KZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="72" y="335"/>
+            <point key="canvasLocation" x="-1054" y="-91"/>
         </scene>
     </scenes>
     <resources>
         <image name="clear_arrow" width="512" height="512"/>
         <image name="color_wheel" width="730" height="730"/>
-        <image name="done2" width="48" height="44"/>
         <image name="happy_emoji" width="256" height="256"/>
         <image name="loginO" width="240" height="240"/>
         <image name="p_login" width="240" height="240"/>
@@ -786,4 +754,5 @@
         <image name="pongselect" width="240" height="240"/>
         <image name="sign_up" width="634" height="806"/>
     </resources>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -28,13 +28,11 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         addRefreshControl()
         setup()
         checkIfNeedsLogin()
-        loadData()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(false, animated: false)
-        showTabBar()
         loadData()
     }
     
@@ -130,10 +128,11 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     // MARK: General Functions
     
     func loadData() {
-        if let query = Pong.query() {
-            if let currentPlayer = Player.currentUser() {
+        if let query = Pong.query(),
+            let currentPlayer = Player.currentUser() {
+            
                 query.whereKey("nextPlayer", equalTo: currentPlayer)
-            }
+    
             query.whereKey("isFinished", notEqualTo: true)
             query.includeKey("photos")
             query.findObjectsInBackgroundWithBlock{(object, error) in
@@ -146,7 +145,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     func addRefreshControl() {
         refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: Selector("loadData"), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: "loadData", forControlEvents: UIControlEvents.ValueChanged)
         refreshControl.tintColor = UIColor.whiteColor()
         receivedPongCollectionView.addSubview(refreshControl)
     }
@@ -156,20 +155,15 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         if pongPlayer == nil {
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 let loginVC:UIViewController = UIStoryboard(name: "DesignSprint", bundle: nil).instantiateViewControllerWithIdentifier("LogInViewController") as UIViewController
-                self.showViewController(loginVC, sender: self)
+                
+                self.tabBarController?.presentViewController(loginVC, animated: true, completion: nil)
+//                self.showViewController(loginVC, sender: self)
             })
         } else {
             print("User \(pongPlayer?.username) is logged in")
         }
     }
-    
-    func hideTabBar() {
-        self.tabBarController?.tabBar.hidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.hidden = false
-    }
+
     
     // MARK: - Segues -
     

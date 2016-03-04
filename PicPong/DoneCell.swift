@@ -17,8 +17,6 @@ class DoneCell: UICollectionViewCell {
             configure()
         }
     }
-
-    //ACTIONS
     
     @IBOutlet weak var donePongImageView: UIImageView!
     
