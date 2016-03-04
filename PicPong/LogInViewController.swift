@@ -48,10 +48,7 @@ class LogInViewController: UIViewController {
                         let viewController:UIViewController = UIStoryboard(name: "DesignSprint", bundle: nil).instantiateViewControllerWithIdentifier("LogInViewController") as! LogInViewController
                         self.presentViewController(viewController, animated: true, completion: nil)
                     })
-                    
                 } else {
-                    
-                    
                 }
             })
         }
@@ -59,14 +56,17 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
-        setTabBarVisible(false, animated: true)
+        hideTabBar()
+//        setTabBarVisible(false, animated: true)
     }
     
     override func viewDidDisappear(animated: Bool) {
-        tabBarIsVisible()
+        showTabBar()
+//        tabBarIsVisible()
     }
     
     func setTabBarVisible(visible: Bool, animated: Bool) {
@@ -86,8 +86,16 @@ class LogInViewController: UIViewController {
         }
     }
     
-    func tabBarIsVisible() ->Bool {
-        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    func hideTabBar() {
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
+    func showTabBar() {
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
     }
     
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {

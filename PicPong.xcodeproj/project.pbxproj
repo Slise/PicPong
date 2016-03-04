@@ -225,8 +225,8 @@
 				930E14291C7D2DB900732CA0 /* PongCollectionView.swift */,
 				930E142B1C7D2E0000732CA0 /* PongIterationView.swift */,
 				935B688A1C879A19002D3A26 /* SwiftColorPickerViewController.swift */,
-				930E14371C7EB63300732CA0 /* SignUpViewController.swift */,
 				935B68881C7FFF95002D3A26 /* LogInViewController.swift */,
+				930E14371C7EB63300732CA0 /* SignUpViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -579,6 +579,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PicPong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -591,6 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PicPong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.lighthouselabs.PicPong;
 				PRODUCT_NAME = "$(TARGET_NAME)";

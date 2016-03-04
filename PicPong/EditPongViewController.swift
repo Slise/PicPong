@@ -37,7 +37,8 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
     }
     
     override func viewWillAppear(animated: Bool) {
-        tabBarIsVisible()
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        showTabBar()
     }
     
     // MARK: General Methods
@@ -110,6 +111,14 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
                 })
             }
         }
+    }
+    
+    func hideTabBar() {
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
+    func showTabBar() {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     func getRandomPlayer(completion: (Player)->(Void)) {

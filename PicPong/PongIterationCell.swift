@@ -20,6 +20,7 @@ class PongIterationCell: UICollectionViewCell {
             configure()
         }
     }
+    
     var  pongNum:NSNumber = 0.0{
         didSet {
             configure()
@@ -29,7 +30,7 @@ class PongIterationCell: UICollectionViewCell {
     func configure() {
         let objectRef = pong
         postImageView.image = nil
-         let lastObj = pong.photos[pongNum.integerValue] //{
+         let lastObj = pong.photos[pongNum.integerValue]
             lastObj.pongImage.getDataInBackgroundWithBlock { data, error in
                 if error == nil {
                     if self.pong == objectRef {

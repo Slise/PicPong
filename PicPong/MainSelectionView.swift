@@ -25,7 +25,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addRefreshControl()
         setup()
         checkIfNeedsLogin()
@@ -34,7 +33,8 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        tabBarIsVisible()
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        showTabBar()
         loadData()
     }
     
@@ -69,10 +69,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         imageFromSource.allowsEditing = false
         imageFromSource.sourceType = type
         self.presentViewController(imageFromSource, animated: true, completion:nil)
-    }
-    
-    func tabBarIsVisible() ->Bool {
-        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -165,6 +161,14 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         } else {
             print("User \(pongPlayer?.username) is logged in")
         }
+    }
+    
+    func hideTabBar() {
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
+    func showTabBar() {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     // MARK: - Segues -

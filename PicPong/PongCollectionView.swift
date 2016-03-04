@@ -27,9 +27,13 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         addRefreshControl()
-        tabBarIsVisible()
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        showTabBar()
     }
     
     //MARK: - UICollectionViewControllerDelegate Methods -
@@ -87,8 +91,12 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
         pongCollectionView.addSubview(refreshControl)
     }
     
-    func tabBarIsVisible() ->Bool {
-        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    func hideTabBar() {
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
+    func showTabBar() {
+        self.tabBarController?.tabBar.hidden = false
     }
     
     //MARK: - Actions -
