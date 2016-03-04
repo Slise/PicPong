@@ -11,7 +11,7 @@ import UIKit
 class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var pong: Pong?
-   @NSManaged var pongID: String
+    @NSManaged var pongID: String
     var pongIterations = [Pong]()
     
     //MARK: - Outlets -
@@ -19,7 +19,7 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,7 +44,7 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("iterationCell", forIndexPath: indexPath) as! PongIterationCell
-
+        
         cell.postImageView.layer.borderWidth = 0
         cell.pong = pong
         cell.pongNum = indexPath.row
@@ -54,8 +54,8 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as? PongIterationCell
-        cell?.postImageView.layer.borderColor = UIColor.redColor().CGColor
-        cell?.postImageView.layer.borderWidth = 4
+        cell?.postImageView.layer.borderColor = UIColor.blueColor().CGColor
+        cell?.postImageView.layer.borderWidth = 5
         
         print("selectedItem is \(indexPath.item)")
         
@@ -67,8 +67,19 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
         cell?.postImageView.layer.borderWidth = 0
         
         print("selectedItem is \(indexPath.item)")
-
+        
     }
+    
+    //Mark: - General Methods -
+    
+    func hideTabBar() {
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
+    func showTabBar() {
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
     
     //MARK: - Actions -
     
@@ -83,17 +94,9 @@ class PongIterationView: UIViewController, UICollectionViewDelegate, UICollectio
                 if let presenter = shareVc.popoverPresentationController {
                     presenter.barButtonItem = sender
                 }
-                
                 self.presentViewController(shareVc, animated: true, completion: nil)
             }
         }
     }
     
-    func hideTabBar() {
-        self.tabBarController?.tabBar.hidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.hidden = false
-    }
 }

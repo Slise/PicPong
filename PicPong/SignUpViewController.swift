@@ -11,14 +11,14 @@ import Parse
 import ParseUI
 
 class SignUpViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var countryField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func signUpPressed(sender: AnyObject) {
@@ -67,5 +67,5 @@ class SignUpViewController: UIViewController {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
-
+    
 }

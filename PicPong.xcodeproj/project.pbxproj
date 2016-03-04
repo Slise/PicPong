@@ -220,13 +220,13 @@
 		9345751B1C7BBD5500681FD9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				935B68881C7FFF95002D3A26 /* LogInViewController.swift */,
+				930E14371C7EB63300732CA0 /* SignUpViewController.swift */,
 				934575181C7BB8A900681FD9 /* MainSelectionView.swift */,
 				930E142D1C7D2E2800732CA0 /* EditPongViewController.swift */,
 				930E14291C7D2DB900732CA0 /* PongCollectionView.swift */,
 				930E142B1C7D2E0000732CA0 /* PongIterationView.swift */,
 				935B688A1C879A19002D3A26 /* SwiftColorPickerViewController.swift */,
-				935B68881C7FFF95002D3A26 /* LogInViewController.swift */,
-				930E14371C7EB63300732CA0 /* SignUpViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

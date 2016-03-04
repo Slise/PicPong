@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate {
     
@@ -50,12 +52,12 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("finishedPongCell", forIndexPath: indexPath) as! DoneCell
         cell.pong = donePongArray[indexPath.row]
         return cell
-            }
+    }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         pong = donePongArray[indexPath.row]
         performSegueWithIdentifier("segueToIteration", sender: self)
-            }
+    }
     
     //MARK: - General Methods -
     
@@ -70,7 +72,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
-
+    
     func myDonePongs() {
         if let query = Pong.query() {
             query.whereKey("finishedPong", equalTo: true)
@@ -83,7 +85,7 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
-
+    
     func addRefreshControl() {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: Selector("donePongs"), forControlEvents: UIControlEvents.ValueChanged)
@@ -121,5 +123,5 @@ class PongCollectionView: UIViewController, UICollectionViewDataSource, UICollec
             }
         }
     }
+    
 }
-

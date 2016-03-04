@@ -205,15 +205,15 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         
-            // adding as delegate for color selection
-            let colorPickerVC = segue.destinationViewController as! SwiftColorPickerViewController
-            colorPickerVC.delegate = self
-            
-            if let popPresentationController = colorPickerVC.popoverPresentationController {
-                popPresentationController.delegate = self
-            }
-            // Get the new view controller using segue.destinationViewController.
-            // Pass the selected object to the new view controller.
+        // adding as delegate for color selection
+        let colorPickerVC = segue.destinationViewController as! SwiftColorPickerViewController
+        colorPickerVC.delegate = self
+        
+        if let popPresentationController = colorPickerVC.popoverPresentationController {
+            popPresentationController.delegate = self
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
     
     // MARK: Color Picker Delegate
@@ -223,7 +223,7 @@ class EditPongViewController: UIViewController, DrawingViewDelegate, SwiftColorP
         drawingView.currentColour = color
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     func tabBarIsVisible() ->Bool {
         return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
     }

@@ -30,7 +30,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         checkIfNeedsLogin()
         loadData()
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -70,11 +70,11 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
         imageFromSource.sourceType = type
         self.presentViewController(imageFromSource, animated: true, completion:nil)
     }
-
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -86,8 +86,15 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
-
-//MARK: UICollectionViewControllerDelegate Methods
+    
+    func setup() {
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .PhotoLibrary
+        receivedPongCollectionView?.alwaysBounceVertical = true
+    }
+    
+    //MARK: UICollectionViewControllerDelegate Methods
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(150, 150)
@@ -96,7 +103,7 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pongImageArray.count+1
     }
-
+    
     let cameraCellIdentifier = "cameraCell"
     let pongCellIdentifier = "pongCell"
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -135,13 +142,6 @@ class MainSelectionView: UIViewController, UIImagePickerControllerDelegate, UINa
                 self.refreshControl.endRefreshing()
             }
         }
-    }
-    
-    func setup() {
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .PhotoLibrary
-        receivedPongCollectionView?.alwaysBounceVertical = true
     }
     
     func addRefreshControl() {
